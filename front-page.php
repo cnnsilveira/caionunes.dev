@@ -1,12 +1,3 @@
 <?php 
 
-get_header();
-
-while (have_posts()) {
-    the_post();
-    the_content();
-}
-
-get_footer();
-
-?>
+require_once(get_theme_file_uri().'/functionalities/markup/default-template.php');
