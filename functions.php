@@ -1,11 +1,19 @@
-<?php 
+<?php
+/**
+ * caionunes.dev
+ *
+ * This file calls all modules from /inc.
+ *
+ * @author  Caio Nunes
+ * @license GPL-3.0
+ * @link    https://github.com/cnnsilveira/caionunes.dev
+ * 
+ */
 
-add_action( 'wp_enqueue_scripts', 'theme_files');
+// Theme constants
+define ( 'CNDEV_DIR', get_template_directory()     );
+define ( 'CNDEV_URI', get_template_directory_uri() );
+define ( 'CNDEV_INC', CNDEV_DIR . '/inc/' );
 
-function theme_files() {
-
-    wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/assets/css/custom.css' );
-
-	wp_enqueue_script( 'custom', get_stylesheet_directory_uri().'/assets/js/custom.js', array('jquery'), false, false );
-
-}
+// Installation clean up
+require_once CNDEV_INC . 'clean-up.php';

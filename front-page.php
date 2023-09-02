@@ -1,3 +1,15 @@
-<?php 
+<?php
+/**
+ * caionunes.dev
+ *
+ * This file generates the theme front page template.
+ *
+ * @author  Caio Nunes
+ * @license GPL-3.0
+ * @link    https://github.com/cnnsilveira/caionunes.dev
+ * 
+ */
 
-require_once(get_theme_file_uri().'/functionalities/markup/default-template.php');
+get_header();
+
+get_footer();
