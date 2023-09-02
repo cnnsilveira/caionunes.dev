@@ -4,10 +4,10 @@
  *
  * This file calls all modules from /inc.
  *
+ * @package Portfolio
  * @author  Caio Nunes
  * @license GPL-3.0
  * @link    https://github.com/cnnsilveira/caionunes.dev
- * 
  */
 
 // Theme constants

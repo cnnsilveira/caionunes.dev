@@ -6,10 +6,10 @@
  * 
  * Reference: https://gist.github.com/alexander-young/b0471a7a3451e56dbb8a7245ef293343
  *
+ * @package Portfolio
  * @author  Caio Nunes
  * @license GPL-3.0
  * @link    https://github.com/cnnsilveira/caionunes.dev
- * 
  */
 
 // Remove emoji support
