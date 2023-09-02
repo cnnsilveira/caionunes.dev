@@ -1,3 +1,16 @@
+<?php
+/**
+ * caionunes.dev
+ *
+ * This file generates the theme header.
+ *
+ * @author  Caio Nunes
+ * @license GPL-3.0
+ * @link    https://github.com/cnnsilveira/caionunes.dev
+ * 
+ */
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
     <head>
