@@ -4,10 +4,10 @@
     "description": "Theme developed by myself to achieve design and features I wanted to implement in my portfolio.",
     "main": "index.js",
     "scripts": {
-        "build": "npm run minify-js && npm run minify-css && wp-scripts build",
+        "build": "npm run minify-js && npm run minify-css",
         "start": "wp-scripts start",
-        "minify-js": "uglifyjs build/*.js -o inc/assets/scripts.min.js",
-        "minify-css": "cleancss build/*.css -o inc/assets/style.min.css",
+        "minify-js": "uglifyjs build/index.js -o inc/assets/scripts.min.js",
+        "minify-css": "cleancss build/style-index.css -o inc/assets/style.min.css",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
