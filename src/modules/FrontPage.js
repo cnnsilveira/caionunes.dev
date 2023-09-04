@@ -14,14 +14,14 @@ class FrontPage {
                 var scrolled = false;
                 var transformValue;
 
-                scrolled = window.scrollY;
+                scrolled = (window.scrollY) / 100;
         
-                transformValue = scrolled+'%';
+                transformValue = 'scale('+scrolled+')';
           
                 box.style.WebkitTransform = transformValue;
                 box.style.MozTransform = transformValue;
                 box.style.OTransform = transformValue;
-                box.style.zoom = transformValue;
+                box.style.transform = transformValue;
               
             }, false);
         }

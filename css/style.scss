@@ -15,7 +15,7 @@ html {box-sizing: border-box; color: #fff; overflow-x: hidden;}
     background: #000;
 }
 #hero-content {
-    zoom: 0.1%;
+    transform: scale(0);
     position: absolute;
     min-width: fit-content;
 }
