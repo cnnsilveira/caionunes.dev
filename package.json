@@ -4,8 +4,10 @@
     "description": "Theme developed by myself to achieve design and features I wanted to implement in my portfolio.",
     "main": "index.js",
     "scripts": {
-        "build": "wp-scripts build",
+        "build": "npm run minify-js && npm run minify-css && wp-scripts build",
         "start": "wp-scripts start",
+        "minify-js": "uglifyjs build/*.js -o inc/assets/scripts.min.js",
+        "minify-css": "cleancss build/*.css -o inc/assets/style.min.css",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -15,5 +17,9 @@
     "license": "LGPL-3.0-or-later",
     "dependencies": {
         "@wordpress/scripts": "*"
+    },
+    "devDependencies": {
+        "clean-css-cli": "^5.6.2",
+        "uglify-js": "^3.17.4"
     }
 }

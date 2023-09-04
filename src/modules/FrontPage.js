@@ -7,10 +7,8 @@ class FrontPage {
     events() {
         window.onload = () => {
             var box = document.getElementById('hero-content');
-            var docHeight = document.documentElement.offsetHeight;
             
             window.addEventListener( 'scroll', function() {
-                // normalize scroll position as percentage
                 var scrolled = false;
                 var transformValue;
 
