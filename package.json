@@ -1,16 +1,18 @@
 {
-    "name"       : "caionunes.dev",
-    "version"    : "1.1.0",
+    "name": "caionunes.dev",
+    "version": "1.1.0",
     "description": "Theme developed by myself to achieve design and features I wanted to implement in my portfolio.",
-    "main"       : "index.js",
-    "scripts"    : {
+    "main": "index.js",
+    "scripts": {
         "build": "wp-scripts build",
         "start": "wp-scripts start",
-        "test" : "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": ["Portfolio"],
-    "author"  : "Caio Nunes",
-    "license" : "LGPL-3.0-or-later",
+    "keywords": [
+        "Portfolio"
+    ],
+    "author": "Caio Nunes",
+    "license": "LGPL-3.0-or-later",
     "dependencies": {
         "@wordpress/scripts": "*"
     }
