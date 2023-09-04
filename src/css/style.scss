@@ -1,6 +1,6 @@
 /* Browser spacing reset */
 html {box-sizing: border-box; color: #fff; overflow-x: hidden;}
-*, *::before, *::after {margin: 0; padding: 0; box-sizing: inherit;}
+*, ::before, ::after {margin: 0; padding: 0; box-sizing: inherit;}
 
 /* Front page hero */
 #front-page-hero {
