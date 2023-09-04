@@ -2,7 +2,7 @@
 /**
  * caionunes.dev
  *
- * This file removes default WP code that is not being used
+ * Removes default WP code that is not being used
  * 
  * Credit: https://gist.github.com/alexander-young/b0471a7a3451e56dbb8a7245ef293343
  *

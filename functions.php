@@ -2,7 +2,7 @@
 /**
  * caionunes.dev
  *
- * This file calls all modules from /inc.
+ * All theme's functionalities are being defined on /inc/ folder, functions.php only connect them to WordPress
  *
  * @package Portfolio
  * @author  Caio Nunes
@@ -16,7 +16,4 @@ define ( 'CNDEV_URI', get_template_directory_uri() );
 define ( 'CNDEV_INC', CNDEV_DIR . '/inc/' );
 
 // Installation clean up
-require_once CNDEV_INC . 'clean-up.php';
-
-// Head enqueues
-require_once CNDEV_INC . 'enqueues.php';
+require_once CNDEV_INC . 'include.php';
