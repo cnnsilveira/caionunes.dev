@@ -10,7 +10,7 @@ require_once CNDEV_INC . '/templates/front-page.php'; // Create theme front page
 
 /**
  *	---------------------------------------------------------------------
- *	Emqueues
+ *	Enqueues scripts and styles
  *	---------------------------------------------------------------------
  */
 add_action( 'wp_enqueue_scripts', 'cndev_enqueues' );
