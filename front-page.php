@@ -11,5 +11,26 @@
  */
 
 get_header();
+?>
 
+
+
+    <section id="front-page-hero">
+
+        <div id="hero-content">
+
+            <h1>Hello, world</h1>
+
+
+        </div>
+
+    </section>
+    <main>
+        <section>
+            <p style="color: #000;">Dummy content</p>
+        </section>
+
+    </main>
+
+<?
 get_footer();

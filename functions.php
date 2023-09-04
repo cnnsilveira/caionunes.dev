@@ -17,3 +17,6 @@ define ( 'CNDEV_INC', CNDEV_DIR . '/inc/' );
 
 // Installation clean up
 require_once CNDEV_INC . 'clean-up.php';
+
+// Head enqueues
+require_once CNDEV_INC . 'enqueues.php';
