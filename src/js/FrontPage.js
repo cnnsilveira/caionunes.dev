@@ -1,29 +1,25 @@
 class FrontPage {
 
-    constructor() {
-        this.events();
-    }
+	constructor() {
+	this.events();
+	}
 
-    events() {
-        window.onload = () => {
-            var box = document.getElementById('hero-content');
-            
-            window.addEventListener( 'scroll', function() {
-                var scrolled = false;
-                var transformValue;
+	events() {
+		jQuery(($) => {
+            var element = $(".fade-out-effect");
+            var lastScrollTop = 0;
 
-                scrolled = (window.scrollY) / 100;
-        
-                transformValue = 'scale('+scrolled+')';
-          
-                box.style.WebkitTransform = transformValue;
-                box.style.MozTransform = transformValue;
-                box.style.OTransform = transformValue;
-                box.style.transform = transformValue;
-              
-            }, false);
-        }
-    }
+            $(window).scroll(function() {
+				var scrollTop = $(this).scrollTop();
+				$(element).css({
+					opacity: function() {
+						var elementHeight = $(this).height();
+						return 0 + (elementHeight - scrollTop) / elementHeight;
+					}
+				});
+            });
+		});
+	}
 }
 
 export default FrontPage;

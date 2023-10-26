@@ -1,8 +1,8 @@
 <?php
 /**
- * caionunes.dev
+ * Caionunes.dev
  *
- * This file generates the theme footer.
+ * This file outputs the footer template.
  *
  * @package Portfolio
  * @author  Caio Nunes
@@ -10,6 +10,8 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-wp_footer(); 
+get_template_part( 'template-parts/footer' );
+
+wp_footer();
 
 echo '</body></html>';

@@ -2,10 +2,18 @@
 /**
  * Caionunes.dev
  *
- * This file generates the fallback template if no other template match the current query.
+ * Generates the footer template.
  *
  * @package Portfolio
  * @author  Caio Nunes
  * @license GPL-3.0
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
+
+?>
+
+<footer>
+	<div>
+		test
+	</div>
+</footer>
