@@ -11,5 +11,5 @@ jQuery(document).ready(() => {
     const frontPage = new FrontPage();
     const header = new Header();
     const particles = new Particles();
-	const stringEffect = new StringEffect(jQuery('#messenger'));
+	const stringEffect = new StringEffect(jQuery('.string-effect'));
 });

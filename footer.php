@@ -10,7 +10,7 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-get_template_part( 'template-parts/footer' );
+// get_template_part( 'template-parts/footer' );
 
 wp_footer();
 

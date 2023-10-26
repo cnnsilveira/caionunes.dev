@@ -14,11 +14,21 @@
 // Constants.
 define( 'CNDEV_DIR', get_template_directory() );
 define( 'CNDEV_URI', get_template_directory_uri() );
+define( 'CNDEV_IMG', CNDEV_URI . '/inc/assets/img' );
 define( 'CNDEV_INC', CNDEV_DIR . '/inc' );
+define( 'CNDEV_ADMIN', CNDEV_INC . '/admin' );
+define( 'CNDEV_FUNCTIONS', CNDEV_INC . '/functions' );
+
+// WP bars.
+require_once CNDEV_ADMIN . '/wp-bars.php';
+// Custom post type.
+require_once CNDEV_ADMIN . '/post-type.php';
+// Custom fields.
+require_once CNDEV_ADMIN . '/custom-fields.php';
 
 // Helper functions.
-require_once CNDEV_INC . '/helper-functions.php';
+require_once CNDEV_FUNCTIONS . '/helper-functions.php';
 // Body classes.
-require_once CNDEV_INC . '/body-class.php';
+require_once CNDEV_FUNCTIONS . '/body-class.php';
 // Enqueues.
-require_once CNDEV_INC . '/enqueues.php';
+require_once CNDEV_FUNCTIONS . '/enqueues.php';
