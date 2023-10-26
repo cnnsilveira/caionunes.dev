@@ -10,11 +10,10 @@ var StringEffect = function(el) {
 			m.fadeBuffer = false;
 			m.messages = [
 			  'Developer',
-			  'Freelancer',
 			  'Gamer',
 			  'Son',
-			  'Interstellar fan',
-			  'Coffee lover',
+			  'Spacewalker',
+			  'Coffeeholic',
 			];
 			
 			setTimeout(m.animateIn, 0);

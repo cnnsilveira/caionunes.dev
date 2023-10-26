@@ -46,7 +46,13 @@ class FrontPage {
 				$(event.target).addClass('active');
 				$(event.target).siblings().removeClass('active');
 				$('.cndev_home_about--content p').html(aboutContent[$(event.target).attr('id')]);
-			})
+			});
+			// Footer scroll to top.
+			$('.cndev_footer i').on('click', () => {
+				$('html, body').animate({
+					scrollTop: 0
+				}, 0);
+			});
 		});
 	}
 }

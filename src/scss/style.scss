@@ -310,13 +310,14 @@ section {
 				.left {
 					display: flex;
 					justify-content: center;
+					padding-right: 75px;
 					img {
 						object-fit: cover;
 						height: 100%;
 						width: 100%;
-						max-width: 350px;
+						// max-width: 350px;
 						border: 1px solid #fff;
-						border-radius: 50%;
+						// border-radius: 50%;
 					}
 				}
 				.right {
@@ -327,6 +328,7 @@ section {
 						font-size: 42px;
 						min-height: 60px;
 						margin-bottom: 10px;
+						font-family: monospace;
 					}
 					p {
 						font-size: 20px;
@@ -444,6 +446,28 @@ section {
 					width: fit-content;
 				}
 			}
+		}
+	}
+	&_footer {
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding-bottom: 30px;
+		text-align: center;
+		&--inner {
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+		&--content {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+		span {
+			font-size: 14px;
+			font-weight: 300;
 		}
 	}
 }

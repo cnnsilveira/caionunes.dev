@@ -13,5 +13,5 @@
 
 $footer_id = cndev_section_id( 'footer' );
 
-$footer_content = cndev_social_icons();
+$footer_content = '<span>&copy; 2023 – Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, Developed by Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
 cndev_section( 'footer', $footer_id, '', $footer_content );

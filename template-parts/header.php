@@ -17,9 +17,9 @@ $header_content .= '
 	<div class="' . $header_id . '--nav">
 		<nav>
 			<ul>
-				<li><a>' . _x( 'About', 'projects' ) . '</a></li>
-				<li><a>' . _x( 'Projects', 'projects' ) . '</a></li>
-				<li><a>' . _x( 'Contact', 'projects' ) . '</a></li>
+				<li><a class="cndev_button">' . _x( 'About', 'projects' ) . '</a></li>
+				<li><a class="cndev_button">' . _x( 'Projects', 'projects' ) . '</a></li>
+				<li><a class="cndev_button">' . _x( 'Contact', 'projects' ) . '</a></li>
 			</ul>
 		</nav>
 	</div>
