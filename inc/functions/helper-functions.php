@@ -98,7 +98,7 @@ function cndev_main_tag( bool $open, string $current_page = '' ) {
 function cndev_about_selector() {
 	$markup = '
 	<div class="cndev_content_selector">
-		<span id="for-all" class="cndev_button active">IRL</span>
+		<span id="for-all" class="cndev_button active">Today</span>
 		<span id="for-costumers" class="cndev_button">For costumers</span>
 		<span id="for-companies" class="cndev_button">For companies</span>
 		<span id="for-developers" class="cndev_button">For developers</span>
