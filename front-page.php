@@ -13,7 +13,7 @@
 get_header();
 
 get_template_part( 'template-parts/particles' );
-cndev_main_tag( true, '--front-page' );
+cndev_main_tag( true );
 get_template_part( 'template-parts/front-page/hero' );
 get_template_part( 'template-parts/front-page/about' );
 get_template_part( 'template-parts/front-page/projects' );

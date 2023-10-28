@@ -7,8 +7,8 @@ class FrontPage {
 	events() {
 		jQuery(($) => {
 			function toggleTabContent() {
-				$('.cndev_home_about--content p.content').each((index, selector) => {
-					if ( $('.cndev_home_about--content .selector .cndev_button.active').attr('id') === $(selector).data('tab-content') ) {
+				$('.cndev_section[data-content="about"] p.content').each((index, selector) => {
+					if ( $('.cndev_section[data-content="about"] .selector .cndev_button.active').attr('id') === $(selector).data('tab-content') ) {
 						setTimeout(() => {
 							$(selector).slideDown(500);
 						}, 400);
@@ -52,7 +52,7 @@ class FrontPage {
 			});
 
 			// Hero scroll.
-			$('.cndev_home_hero .cndev_button').on('click', (event) => {
+			$('.cndev_section[data-content="hero"] .cndev_button').on('click', (event) => {
 				$('html, body').animate({
                     scrollTop: $('.'+$(event.target).attr('id')).offset().top
                 }, 0);
@@ -60,7 +60,7 @@ class FrontPage {
 
 			// Tabs content.
 			toggleTabContent();
-			$('.cndev_home_about--content .selector .cndev_button').on('click', (event) => {
+			$('.cndev_section[data-content="about"] .selector .cndev_button').on('click', (event) => {
 				$(event.target).addClass('active');
 				$(event.target).siblings().removeClass('active');
 				toggleTabContent();
@@ -126,7 +126,7 @@ class FrontPage {
 			}
 			// Content.
 			function contentChange(key) {
-				$('.cndev_home_about--content > .content').each((index, selector) => {
+				$('.cndev_section[data-content="about"] .content').each((index, selector) => {
 					if ( $(selector).data('content') === key ) {
 						$(selector).show();
 					} else {

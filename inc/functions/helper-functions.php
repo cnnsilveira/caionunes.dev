@@ -65,25 +65,83 @@ function cndev_section_id( string $page, string $section = null ) {
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_section( string $section, string $class, string $title = '', string $content, $section_id = '', $cndev_echo = true ) {
-	$data_content = '' !== $section_id ? 'data-content="' . $section_id . '"' : '';
-
-	$markup  = '<' . $section . ' class="' . $class . '" ' . $data_content . '>';
-	$markup .= '<article class="' . $class . '--inner">';
-	if ( '' !== $title ) {
-		$markup .= '
-			<div class="' . $class . '--title">
-				<i class="cndev_prev_section fa-solid fa-chevron-left"></i>
-				<h2 class="section-title">' . $title . '</h2>
-				<input type="hidden" id="cndev_current-section" value="about">
-				<i class="cndev_next_section fa-solid fa-chevron-right"></i>
-			</div><!-- .' . $class . '--title -->';
+function cndev_section( array $args ) {
+	// Arguments validation.
+	$required = array( 'tag', 'content' );
+	foreach ( $required as $req ) {
+		if ( ! array_key_exists( $req, $args ) ) {
+			return;
+		}
 	}
-	$markup .= '<div class="' . $class . '--content">' . $content . '</div><!-- .' . $class . '--content -->';
-	$markup .= '</article><!-- .' . $class . '--inner-->';
-	$markup .= '</' . $section . '><!-- .' . $class . ' -->';
 
-	if ( $cndev_echo ) {
+	// Required variables.
+	$section_tag     = $args['tag'];
+	$section_content = $args['content'];
+	// Not required variables.
+	$section_inner = array_key_exists( 'inner', $args ) ? $args['inner'] : 'article';
+	$section_wrap  = array_key_exists( 'content_wrap', $args ) ? $args['content_wrap'] : 'div';
+	$section_title = array_key_exists( 'title', $args ) ? $args['title'] : false;
+	$section_id    = array_key_exists( 'id', $args ) ? $args['id'] : false;
+	$section_data  = array_key_exists( 'data', $args ) ? $args['data'] : false;
+	$section_echo  = array_key_exists( 'echo', $args ) ? $args['echo'] : true;
+
+	// Classes.
+	$cndev_pattern = 'cndev_' . $section_tag;
+	$section_class = 'class="' . $cndev_pattern . '"';
+	$inner_class   = 'class="' . $cndev_pattern . '--inner"';
+	$title_class   = 'class="' . $cndev_pattern . '--title"';
+	$content_class = 'class="' . $cndev_pattern . '--content"';
+
+	// Title markup.
+	$title = '';
+	if ( $section_title ) {
+		$title .= '
+			<div ' . $title_class . '>
+			<h2>' . $section_title . '</h2>
+			</div><!-- .' . $title_class . ' -->
+		';
+	}
+
+	// Content markup.
+	if ( false !== $section_wrap ) {
+		$content_wrap  = $title;
+		$content_wrap .= '<' . $section_wrap . ' ' . $content_class . '>';
+		$content_wrap .= $section_content;
+		$content_wrap .= '</' . $section_wrap . '><!-- ' . $content_class . '-->';
+	} else {
+		$content_wrap = $title . $section_content;
+	}
+
+	// Article markup.
+	if ( false !== $section_inner ) {
+		$inner  = '<' . $section_inner . ' ' . $inner_class . '>';
+		$inner .= $content_wrap;
+		$inner .= '</' . $section_inner . '><!-- .' . $inner_class . '-->';
+	} else {
+		$inner = $content_wrap;
+	}
+
+	// Data content.
+	$data = '';
+	if ( $section_data ) {
+		foreach ( $section_data as $key => $value ) {
+			$data .= 'data-' . $key . '="' . $value . '" ';
+		}
+	}
+
+	// Section ID.
+	if ( $section_id ) {
+		$id_attr = 'id="' . $section_id . '"';
+	} else {
+		$id_attr = '';
+	}
+
+	// Section markup.
+	$markup  = '<' . $section_tag . ' ' . $id_attr . $section_class . $data . '>';
+	$markup .= $inner;
+	$markup .= '</' . $section_tag . '><!-- .' . $section_class . ' -->';
+
+	if ( $section_echo ) {
 		echo $markup;
 	} else {
 		return $markup;

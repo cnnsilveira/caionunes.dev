@@ -10,8 +10,11 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
+$markup = '<span>&copy; ' . gmdate( 'Y' ) . ', Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
 
-$footer_id = cndev_section_id( 'footer' );
-
-$footer_content = '<span>&copy; ' . gmdate( 'Y' ) . ', Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
-cndev_section( 'footer', $footer_id, '', $footer_content );
+cndev_section(
+	array(
+		'tag'     => 'footer',
+		'content' => $markup,
+	)
+);

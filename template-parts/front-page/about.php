@@ -12,7 +12,7 @@
 
 $section_id = cndev_section_id( 'home', 'about' );
 // Markup.
-$markup = '<div class="content about" data-content="about">' . cndev_about_selector( 'today' ) . '
+$markup = cndev_about_selector( 'today' ) . '
 	<div class="left">
 		<img src="' . esc_url( cndev_images( 'eu-ia' ) ) . '">
 	</div>
@@ -24,9 +24,18 @@ foreach ( cndev_about_tabs() as $tab_id => $content ) {
 	$markup .= '<p class="content" data-tab-content="' . $tab_id . '">' . $content['content'] . '</p>';
 }
 $markup .= '
-			</div>
-			' . cndev_social_icons() . '
 		</div>
-	</div><!-- #about -->
+		' . cndev_social_icons() . '
+	</div>
 ';
-cndev_section( 'section', $section_id, 'Who\'s Caio?', $markup, 'about' );
+
+cndev_section(
+	array(
+		'tag'     => 'section',
+		'title'   => 'Who\'s Caio?',
+		'content' => $markup,
+		'data'    => array(
+			'content' => 'about',
+		),
+	)
+);

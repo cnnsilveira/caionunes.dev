@@ -22,14 +22,14 @@ class Header {
 			}
 
 			// Scroll event.
-            if ( $(window).scrollTop() > 0 && ! $('header').hasClass('scrolled') ) {
-                $('header').addClass('scrolled');
+            if ( $(window).scrollTop() > 0 && ! $('body').hasClass('scrolled') ) {
+                $('body').addClass('scrolled');
             }
             $(window).scroll( function() {
                 if ( $(this).scrollTop() > $(window).height() / 2) {
-                    $('header').addClass('scrolled');
+                    $('body').addClass('scrolled');
                 } else {
-                    $('header').removeClass('scrolled');
+                    $('body').removeClass('scrolled');
                 }
             });
 
