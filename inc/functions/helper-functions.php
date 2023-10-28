@@ -139,7 +139,7 @@ function cndev_section( array $args ) {
 	// Section markup.
 	$markup  = '<' . $section_tag . ' ' . $id_attr . $section_class . $data . '>';
 	$markup .= $inner;
-	$markup .= '</' . $section_tag . '><!-- .' . $section_class . ' -->';
+	$markup .= '</' . $section_tag . '><!-- .' . $cndev_pattern . ' -->';
 
 	if ( $section_echo ) {
 		echo $markup;
@@ -201,6 +201,8 @@ function cndev_about_selector( string $default ) {
 
 function cndev_images( $selected ) {
 	$images = array(
+		'mobile-frame' => CNDEV_IMG . '/mobile-frame.png',
+		'pc-frame'     => CNDEV_IMG . '/pc-frame.png',
 		'laptop-frame' => CNDEV_IMG . '/laptop-frame.webp',
 		'about-me'     => CNDEV_IMG . '/about-me.webp',
 		'eu'           => CNDEV_IMG . '/eu.png',
@@ -214,7 +216,6 @@ function cndev_social_icons() {
 	$markup = '
 		<div class="cndev_social_icons">
 			<ul>
-			
 				<li><a href="https://www.twitch.tv/caiodigdin_" target="_blank"><i class="fa-brands fa-twitch"></i></a><li>
 				<li><a href="https://github.com/cnnsilveira/" target="_blank"><i class="fa-brands fa-github"></i></a><li>
 				<li><a href="https://www.linkedin.com/in/caio-nuness/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a><li>
