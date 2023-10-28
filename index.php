@@ -1,6 +1,6 @@
 <?php
 /**
- * caionunes.dev
+ * Caionunes.dev
  *
  * This file generates the fallback template if no other template match the current query.
  *
