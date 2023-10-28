@@ -38,6 +38,7 @@ add_action( 'wp_before_admin_bar_render', 'cndev_admin_bar' );
  */
 function cndev_admin_bar() {
 	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu( 'site-name' );
 	$wp_admin_bar->remove_menu( 'new-content' );
 	$wp_admin_bar->remove_menu( 'archive' );
 	$wp_admin_bar->remove_menu( 'comments' );
@@ -46,6 +47,18 @@ function cndev_admin_bar() {
 	$wp_admin_bar->remove_menu( 'wp-logo' );
 	$wp_admin_bar->remove_menu( 'search' );
 	$wp_admin_bar->remove_menu( 'view' );
+	$wp_admin_bar->add_menu(
+		array(
+			'id'     => 'home',
+			'parent' => null,
+			'group'  => null,
+			'title'  => '<span class="cndev_admin-bar-item dashicons dashicons-admin-home"></span>' . __( 'Front', 'project' ),
+			'href'   => home_url(),
+			'meta'   => array(
+				'title' => __( 'Front', 'project' ),
+			),
+		)
+	);
 	$wp_admin_bar->add_menu(
 		array(
 			'id'     => 'projects',
@@ -71,7 +84,7 @@ function cndev_admin_bar_icon() {
 	if ( is_admin_bar_showing() ) {
 		?>
 		<style type="text/css">
-			#wp-admin-bar-projects .cndev_admin-bar-item.dashicons {
+			#wpadminbar .cndev_admin-bar-item.dashicons {
 				font-family: dashicons !important;
 				display: inline-block !important;
 				line-height: 1 !important;
@@ -95,10 +108,17 @@ function cndev_admin_bar_icon() {
 				color: rgba(240,246,252,.6) !important;
 				top: 3px !important;
 			}
-			#wp-admin-bar-projects:hover .cndev_admin-bar-item.dashicons {
+			#wpadminbar li:hover .cndev_admin-bar-item.dashicons {
 				color: #72aee6 !important;
 			}
 		</style>
 		<?php
+	}
+}
+
+if ( ! is_admin() ) {
+	add_filter( 'show_admin_bar', 'cndev_remove_wp_admin_bar' );
+	function cndev_remove_wp_admin_bar() {
+		return false;
 	}
 }

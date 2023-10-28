@@ -6,24 +6,54 @@ class Header {
 
     events() {
         jQuery( function( $ ) {
+			/**
+			 * onClassChange extension.
+			 * @source https://stackoverflow.com/questions/19401633/how-to-fire-an-event-on-class-change-using-jquery
+			 */
+			$.fn.onClassChange = function(cb) {
+				return $(this).each((_, el) => {
+					new MutationObserver(mutations => {
+						mutations.forEach(mutation => cb && cb(mutation.target, mutation.target.className));
+					}).observe(el, {
+						attributes: true,
+						attributeFilter: ['class'] // only listen for class attribute changes 
+					});
+				});
+			}
+
 			// Scroll event.
-            if ( $( window ).scrollTop() > 0 && ! $( window ).hasClass( 'small' ) ) {
-                $( 'header' ).addClass( 'small' );
+            if ( $(window).scrollTop() > 0 && ! $('header').hasClass('scrolled') ) {
+                $('header').addClass('scrolled');
             }
-            $( window ).scroll( function() {
-                if ( $( this ).scrollTop() > 250 ) {
-                    $( 'header' ).addClass( 'small' );
+            $(window).scroll( function() {
+                if ( $(this).scrollTop() > $(window).height() / 2) {
+                    $('header').addClass('scrolled');
                 } else {
-                    $( 'header' ).removeClass( 'small' );
+                    $('header').removeClass('scrolled');
                 }
             });
-			// Header logo.
-			$('header .cndev_logo').on('click', () => {
+
+			// Scroll to top.
+			$('header .cndev_logo, .cndev_header--scroll').on('click', () => {
 				$('html, body').animate({
-                    scrollTop: 0
-                }, 0);
-			})
-        });
+					scrollTop: 0
+				}, 0);
+			});
+
+			// Inner content.
+			
+			$("header").onClassChange((el, newClass) => {
+				if ( $('header').hasClass('scrolled') ) {
+					$('.cndev_header--inner').css({background: 'linear-gradient(360deg, #0807082a, #00000000)', backdropFilter: 'blur(20px)', width: '1000px'});
+				} else {
+					$('.cndev_header--inner').css({width: '135px'});
+					setTimeout(() => {
+						$('.cndev_header--inner').css({background: 'none', blur: '0px'});
+					}, 250);
+				}
+			});
+			
+		});
     }
 }
 

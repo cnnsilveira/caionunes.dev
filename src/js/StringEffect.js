@@ -11,10 +11,11 @@ var StringEffect = function(el) {
 			m.messages = [
 			  'Web Developer',
 			  'AI Explorer',
+			  'Problem Solver',
 			  'Gamer',
 			  'Astronomy Enthusiast',
 			  'Son',
-			  'Gimme Coffee',
+			  'Coffee Maniac',
 			];
 			
 			setTimeout(m.animateIn, 0);

@@ -25,4 +25,7 @@
 	wp_body_open();
 
 	// Header template.
+	if ( current_user_can( 'administrator' ) ) {
+		get_template_part( 'template-parts/admin-bar' );
+	}
 	get_template_part( 'template-parts/header' );

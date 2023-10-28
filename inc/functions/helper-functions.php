@@ -65,11 +65,19 @@ function cndev_section_id( string $page, string $section = null ) {
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_section( string $section, string $class, string $title = '', string $content, $cndev_echo = true ) {
-	$markup  = '<' . $section . ' class="' . $class . '">';
+function cndev_section( string $section, string $class, string $title = '', string $content, $section_id = '', $cndev_echo = true ) {
+	$data_content = '' !== $section_id ? 'data-content="' . $section_id . '"' : '';
+
+	$markup  = '<' . $section . ' class="' . $class . '" ' . $data_content . '>';
 	$markup .= '<article class="' . $class . '--inner">';
 	if ( '' !== $title ) {
-		$markup .= '<div class="' . $class . '--title"><h2 class="section-title">' . $title . '</h2></div><!-- .' . $class . '--title -->';
+		$markup .= '
+			<div class="' . $class . '--title">
+				<i class="cndev_prev_section fa-solid fa-chevron-left"></i>
+				<h2 class="section-title">' . $title . '</h2>
+				<input type="hidden" id="cndev_current-section" value="about">
+				<i class="cndev_next_section fa-solid fa-chevron-right"></i>
+			</div><!-- .' . $class . '--title -->';
 	}
 	$markup .= '<div class="' . $class . '--content">' . $content . '</div><!-- .' . $class . '--content -->';
 	$markup .= '</article><!-- .' . $class . '--inner-->';
@@ -95,14 +103,41 @@ function cndev_main_tag( bool $open, string $current_page = '' ) {
 	echo $open ? '<main class="cndev_main' . esc_attr( $current_page ) . '">' : '</main><!-- .cndev_main' . esc_attr( $current_page ) . ' -->';
 }
 
-function cndev_about_selector() {
+function cndev_about_tabs() {
+	$content = array(
+		'yesterday'      => array(
+			'title'   => 'Yesterday',
+			'content' => 'A cashier who decided to remap his goals and invest time on himself. For a kid who lived his entire life turning computers upside down, what better then some buggy code? So there we went. After a long time of hard study, constant practice and a lot of "why it simply doesn\'t work?" thoughts, I progressively started to build my career as a developer.',
+		),
+		'today'          => array(
+			'title'   => 'Today',
+			'content' => 'A full-stack developer capable of creating end-to-end web applications going from UI/UX development, to custom dashboards and content management. Specialized on WordPress environments including platform configuration, pages creation, themes & plugins customization and more. Currently working as freelancer and looking for the oportunity on the right place.',
+		),
+		'for-companies'  => array(
+			'title'   => 'For companies',
+			'content' => 'The best problem solver you will ever find.',
+
+		),
+		'for-developers' => array(
+			'title'   => 'For developers',
+			'content' => 'Yes, WordPress developers are legit full-stack devel...<br><code>PHP FATAL ERROR: Unexpected ")" on "index.php" at line 1246.</code><br>Oh, sorry, I forgot an "," on my array.',
+		),
+	);
+
+	return $content;
+}
+
+function cndev_about_selector( string $default ) {
 	$markup = '
-	<div class="cndev_content_selector">
-		<span id="for-all" class="cndev_button active">Today</span>
-		<span id="for-costumers" class="cndev_button">For costumers</span>
-		<span id="for-companies" class="cndev_button">For companies</span>
-		<span id="for-developers" class="cndev_button">For developers</span>
-	</div>';
+	<nav class="selector">
+		<ul>';
+	foreach ( cndev_about_tabs() as $tab_id => $content ) {
+		$active  = $default === $tab_id ? ' active' : '';
+		$markup .= '<li id="' . $tab_id . '" class="cndev_button' . $active . '">' . $content['title'] . '</li>';
+	}
+	$markup .= '
+		</ul>
+	</nav>';
 	return $markup;
 }
 
@@ -121,10 +156,22 @@ function cndev_social_icons() {
 	$markup = '
 		<div class="cndev_social_icons">
 			<ul>
+			
+				<li><a href="https://www.twitch.tv/caiodigdin_" target="_blank"><i class="fa-brands fa-twitch"></i></a><li>
 				<li><a href="https://github.com/cnnsilveira/" target="_blank"><i class="fa-brands fa-github"></i></a><li>
 				<li><a href="https://www.linkedin.com/in/caio-nuness/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a><li>
 			</ul>
 		</div><!-- .cndev_social_icons -->
 	';
 	return $markup;
+}
+
+function cndev_is_admin() {
+	return current_user_can( 'administrator' );
+}
+
+function cndev_not_admin_redir() {
+	if ( ! cndev_is_admin() ) {
+		wp_redirect( home_url() );
+	}
 }

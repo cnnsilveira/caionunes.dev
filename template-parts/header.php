@@ -12,17 +12,23 @@
 
 $header_id = cndev_section_id( 'header' );
 
-$header_content  = '<div class="' . $header_id . '--logo">' . cndev_do_logo( 75, '#fff' ) . '</div>';
-$header_content .= '
-	<div class="' . $header_id . '--nav">
-		<nav>
-			<ul>
-				<li><a class="cndev_button">' . _x( 'About', 'projects' ) . '</a></li>
-				<li><a class="cndev_button">' . _x( 'Projects', 'projects' ) . '</a></li>
-				<li><a class="cndev_button">' . _x( 'Contact', 'projects' ) . '</a></li>
-			</ul>
-		</nav>
-	</div>
-';
+$header_content = '<div class="' . $header_id . '--logo">' . cndev_do_logo( 75, '#fff' ) . '</div>';
+
+if ( ! is_404() ) {
+	$header_content .= '
+		<div class="' . $header_id . '--nav">
+			<nav>
+				<ul>
+					<li><a>' . _x( 'Who\'s Caio?', 'projects' ) . '</a></li>
+					<li><a>' . _x( 'My work', 'projects' ) . '</a></li>
+					<li><a>' . _x( 'Get in touch', 'projects' ) . '</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="' . $header_id . '--scroll">
+			<i class="fa-solid fa-chevron-up"></i>
+		</div>
+	';
+}
 
 cndev_section( 'header', $header_id, '', $header_content );
