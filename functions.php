@@ -19,12 +19,12 @@ define( 'CNDEV_INC', CNDEV_DIR . '/inc' );
 define( 'CNDEV_ADMIN', CNDEV_INC . '/admin' );
 define( 'CNDEV_FUNCTIONS', CNDEV_INC . '/functions' );
 
-// WP bars.
-require_once CNDEV_ADMIN . '/wp-bars.php';
+// WP admin bar and admin area menu.
+require_once CNDEV_ADMIN . '/wp-menus.php';
 // Custom post type.
 require_once CNDEV_ADMIN . '/post-type.php';
-// Custom fields.
-require_once CNDEV_ADMIN . '/custom-fields.php';
+// Meta boxes.
+require_once CNDEV_ADMIN . '/meta-boxes/meta.php';
 
 // Helper functions.
 require_once CNDEV_FUNCTIONS . '/helper-functions.php';
