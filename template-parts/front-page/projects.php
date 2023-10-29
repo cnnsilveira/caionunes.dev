@@ -22,8 +22,9 @@ foreach ( $projects as $project ) {
 	$project_title         = $project->post_title;
 	$project_thumb         = get_the_post_thumbnail( $project->ID, array( 75, 75 ) );
 	$project_desktop_image = wp_get_attachment_image( get_post_meta( $project->ID, '_project_desktop_image', true ), array( 392, 234 ) );
-	$project_mobile_image  = wp_get_attachment_image( get_post_meta( $project->ID, '_project_mobile_image', true ), 'large' );
+	$project_mobile_image  = wp_get_attachment_image( get_post_meta( $project->ID, '_project_mobile_image', true ), array( 130, 265 ) );
 	$project_content       = get_post_meta( $project->ID, '_project_content', true );
+	$project_color         = get_post_meta( $project->ID, '_project_color', true );
 	$project_link          = get_post_meta( $project->ID, '_project_link', true );
 	$project_repo          = get_post_meta( $project->ID, '_project_repository', true );
 
@@ -34,7 +35,7 @@ foreach ( $projects as $project ) {
 		$active_class = '';
 	}
 	$thumbs .= '
-		<div class="project-thumb ' . $active_class . '" data-project-id="' . $project->ID . '">
+		<div class="project-thumb ' . $active_class . '" data-project-id="' . $project->ID . '" style="background: ' . $project_color . ';">
 			' . $project_thumb . '
 			<span>' . $project_title . '</span>
 			<a class="project-thumb--click"></a>

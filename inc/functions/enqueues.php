@@ -49,7 +49,7 @@ function cndev_admin_enqueues() {
 
 	if ( $is_edit || $is_new ) {
 		wp_enqueue_media();
-		wp_enqueue_script( 'cndev-admin', CNDEV_URI . '/inc/admin/assets/cndev-admin.js', array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'cndev-admin', CNDEV_URI . '/inc/admin/assets/cndev-admin.js', array( 'jquery', 'wp-color-picker' ), '1.0.0', true );
 	}
 	wp_enqueue_style( 'cndev-admin', CNDEV_URI . '/inc/admin/assets/cndev-admin.css', array(), '1.0.0' );
 }

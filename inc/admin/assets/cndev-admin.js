@@ -20,4 +20,8 @@ jQuery(function($) {
 		});
 		imageUploader.open();
 	})
+
+	$(document).ready(() => {
+		// $('input[name="project_color"]').wpColorPicker();
+	});
 });
