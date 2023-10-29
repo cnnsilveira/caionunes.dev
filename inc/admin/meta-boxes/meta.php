@@ -10,46 +10,41 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
+require_once __DIR__ . '/partials/content.php';
+require_once __DIR__ . '/partials/link.php';
+require_once __DIR__ . '/partials/images.php';
+
 add_action( 'add_meta_boxes', 'cndev_custom_fields' );
 /**
- * Register the banner custom field.
+ * Register the projects custom meta.
  *
  * @package Portfolio
  */
 function cndev_custom_fields() {
 	add_meta_box(
-		'project_link',
-		_x( 'Project link', 'project' ),
-		'cndev_meta_markup',
-		get_post_types(),
+		'project_content',
+		_x( 'Front page excerpt', 'project' ),
+		'cndev_meta_project_content',
+		'projects',
 		'normal',
 		'high'
 	);
-}
-/**
- * Generates the markup for the banner custom field on "Edit Page".
- *
- * @param object $post The object containing the current post data.
- *
- * @package Portfolio
- */
-function cndev_meta_markup( $post ) {
-	// Banner title.
-	$project_link = get_post_meta( $post->ID, '_project_link', true );
-	wp_nonce_field( 'project_link_action', 'project_link_nonce' );
-
-	// Table start.
-	echo '<table class="form-table"><tbody>';
-
-		// Button link.
-		echo '<tr>';
-			echo '<td>';
-				echo '<p><input class="large-text" type="text" name="project_link" value="' . esc_attr( $project_link ) . '" placeholder="#"/></p>';
-			echo '</td>';
-		echo '</tr>';
-
-	// Table end.
-	echo '</tbody></table>';
+	add_meta_box(
+		'project_link',
+		_x( 'Links', 'project' ),
+		'cndev_meta_project_link',
+		'projects',
+		'normal',
+		'high'
+	);
+	add_meta_box(
+		'project_images',
+		_x( 'Screenshots', 'project' ),
+		'cndev_meta_project_images',
+		'projects',
+		'normal',
+		'high'
+	);
 }
 
 add_action( 'save_post', 'cndev_meta_save' );
@@ -69,8 +64,18 @@ function cndev_meta_save( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return $post_id;
 	}
-	// Update banner button link.
+
+	// Update project link.
+	cndev_update_meta( $post_id, 'project_content' );
+
+	// Update project link.
 	cndev_update_meta( $post_id, 'project_link' );
+
+	// Update project desktop image.
+	cndev_update_meta( $post_id, 'project_desktop_image' );
+
+	// Update project mobile image.
+	cndev_update_meta( $post_id, 'project_mobile_image' );
 }
 
 /**
@@ -92,19 +97,11 @@ function cndev_update_meta( $post_id, $field_name ) {
 		return;
 	}
 
-	// Update field if it exists in $_POST.
-	if ( isset( $_POST[ $field_name ] ) ) {
-		$field_value = sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) );
-		update_post_meta(
-			$post_id,
-			'_' . $field_name,
-			$field_value
-		);
-	} else {
-		update_post_meta(
-			$post_id,
-			'_' . $field_name,
-			''
-		);
-	}
+	// Update field.
+	$field_value = isset( $_POST[ $field_name ] ) ? sanitize_text_field( wp_unslash( $_POST[ $field_name ] ) ) : '';
+	update_post_meta(
+		$post_id,
+		'_' . $field_name,
+		$field_value
+	);
 }
