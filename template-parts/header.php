@@ -18,8 +18,8 @@ if ( ! is_404() ) {
 			<nav>
 				<ul>
 					<li><a>' . _x( 'About me', 'projects' ) . '</a></li>
-					<li><a>' . _x( 'My work', 'projects' ) . '</a></li>
-					<li><a>' . _x( 'Get in touch', 'projects' ) . '</a></li>
+					<li><a>' . _x( 'Projects', 'projects' ) . '</a></li>
+					<li><a>' . _x( 'Contact', 'projects' ) . '</a></li>
 				</ul>
 			</nav>
 		</div>
