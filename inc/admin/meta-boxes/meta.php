@@ -12,6 +12,7 @@
 
 require_once __DIR__ . '/partials/content.php';
 require_once __DIR__ . '/partials/link.php';
+require_once __DIR__ . '/partials/color.php';
 require_once __DIR__ . '/partials/images.php';
 
 add_action( 'add_meta_boxes', 'cndev_custom_fields' );
@@ -33,6 +34,14 @@ function cndev_custom_fields() {
 		'project_link',
 		_x( 'Links', 'project' ),
 		'cndev_meta_project_link',
+		'projects',
+		'normal',
+		'high'
+	);
+	add_meta_box(
+		'project_color',
+		_x( 'Predominant color', 'project' ),
+		'cndev_meta_project_color',
 		'projects',
 		'normal',
 		'high'
@@ -70,6 +79,9 @@ function cndev_meta_save( $post_id ) {
 
 	// Update project link.
 	cndev_update_meta( $post_id, 'project_link' );
+
+	// Update project link.
+	cndev_update_meta( $post_id, 'project_color' );
 
 	// Update project desktop image.
 	cndev_update_meta( $post_id, 'project_desktop_image' );

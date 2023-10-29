@@ -1,6 +1,4 @@
 build/
 node_modules/
 test/
-inc/assets/css/
-inc/assets/js/
 package-lock.json

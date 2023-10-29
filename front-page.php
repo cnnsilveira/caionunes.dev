@@ -9,7 +9,9 @@
  * @license GPL-3.0
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
-
+if ( ! cndev_is_admin() ) {
+	wp_redirect( wp_login_url() );
+}
 get_header();
 
 get_template_part( 'template-parts/particles' );

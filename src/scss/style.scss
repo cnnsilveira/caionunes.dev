@@ -457,6 +457,7 @@ section {
 		} // &[data-content="about"]
 
 		&[data-content="projects"] {
+			padding-bottom: 50px;
 
 			.cndev_section--content {
 				display: flex;
@@ -483,17 +484,19 @@ section {
 						gap: 15px;
 
 						.project-thumb {
-							transition: all 200ms linear;
+							transition: all 200ms;
 							cursor: pointer;
 							display: flex;
 							align-items: center;
 							border-radius: 30px;
 							gap: 10px;
 							font-size: 18px;
-							min-width: 46px;
+							min-width: 50px;
 							border: 1px solid transparent;
 							position: relative;
-							height: 46px;
+							height: 50px;
+							background: #44d382;
+							opacity: 0.3;
 
 							a {
 								position: absolute;
@@ -519,28 +522,29 @@ section {
 							}
 
 							&.active {
-								background: #fff;
-								color: var(--primary-color);	
+								background: #fff !important;
+								color: var(--primary-color);
+								opacity: 1;
 							}
-							&:hover {
-								border: 1px solid #fff;
-							}
-							&:hover,
-							&.active {
-								padding: 0 14px;
-								gap: 0;
+							&:not(.active):hover {
+								// padding: 0 14px;
+								// gap: 0;
+								// background: none !important;
+								// border: 1px solid #fff;
+								opacity: 1;
 
-								img {
-									width: 0px;
-									height: 0px;
-									visibility: hidden;
-								}
+								// img {
 
-								span {
-									margin-left: 0;
-									visibility: visible;
-									opacity: 1;
-								}
+								// 	width: 0px;
+								// 	height: 0px;
+								// 	visibility: hidden;
+								// }
+
+								// span {
+								// 	margin-left: 0;
+								// 	visibility: visible;
+								// 	opacity: 1;
+								// }
 							}
 						}
 					}
