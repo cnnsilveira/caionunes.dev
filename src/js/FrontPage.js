@@ -134,6 +134,22 @@ class FrontPage {
 					}
 				});
 			};
+
+			$('.project-thumb--click').on('click', (e) => {
+				toggleProjects($(e.target).parent(), $('[data-project-id]'));
+			});
+
+			function toggleProjects(thumb, element) {
+				$(element).each((index, selector) => {
+					if ( $(selector).data('project-id') === $(thumb).data('project-id') ) {
+						$(selector).addClass('active');
+						$(thumb).parent().addClass('active');
+					} else {
+						$(selector).removeClass('active');
+						$(thumb).parent().removeClass('active');
+					}
+				});
+			}
 		});
 	}
 }
