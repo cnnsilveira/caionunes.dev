@@ -32,7 +32,7 @@ function cndev_project_post_type() {
 		'parent_item_colon'     => __( 'Parent projects:', 'project' ),
 		'not_found'             => __( 'No project found.', 'project' ),
 		'not_found_in_trash'    => __( 'No project found in Trash.', 'project' ),
-		'featured_image'        => _x( 'Project image', 'Overrides the “Featured Image” phrase for this Projects post type.', 'project' ),
+		'featured_image'        => _x( 'Project thumbnail', 'Overrides the “Featured Image” phrase for this Projects post type.', 'project' ),
 		'set_featured_image'    => _x( 'Set image', 'Overrides the “Set featured image” phrase for this Projects post type.', 'project' ),
 		'remove_featured_image' => _x( 'Remove image', 'Overrides the “Remove featured image” phrase for this Projects post type.', 'project' ),
 		'use_featured_image'    => _x( 'Use as image', 'Overrides the “Use as featured image” phrase for this Projects post type.', 'project' ),
@@ -56,7 +56,7 @@ function cndev_project_post_type() {
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-		'menu_position'      => 5,
+		'menu_position'      => 2,
 		'supports'           => array( 'title', 'editor', 'thumbnail' ),
 		'show_in_rest'       => true,
 	);
