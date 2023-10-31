@@ -11,6 +11,18 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
+add_action( 'init', 'cndev_private_website' );
+/**
+ * Provisory redirection if not admin user.
+ *
+ * @package Portfolio
+ */
+function cndev_private_website() {
+	if ( ! is_login() && ! cndev_is_admin() ) {
+		wp_redirect( wp_login_url() );
+	}
+}
+
 // Constants.
 define( 'CNDEV_DIR', get_template_directory() );
 define( 'CNDEV_URI', get_template_directory_uri() );

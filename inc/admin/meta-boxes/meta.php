@@ -24,7 +24,7 @@ add_action( 'add_meta_boxes', 'cndev_custom_fields' );
 function cndev_custom_fields() {
 	add_meta_box(
 		'project_content',
-		_x( 'Front page excerpt', 'project' ),
+		__( 'Front page excerpt', 'cndev' ),
 		'cndev_meta_project_content',
 		'projects',
 		'normal',
@@ -32,7 +32,7 @@ function cndev_custom_fields() {
 	);
 	add_meta_box(
 		'project_link',
-		_x( 'Links', 'project' ),
+		__( 'Links', 'cndev' ),
 		'cndev_meta_project_link',
 		'projects',
 		'normal',
@@ -40,7 +40,7 @@ function cndev_custom_fields() {
 	);
 	add_meta_box(
 		'project_color',
-		_x( 'Predominant color', 'project' ),
+		__( 'Predominant color', 'cndev' ),
 		'cndev_meta_project_color',
 		'projects',
 		'normal',
@@ -48,7 +48,7 @@ function cndev_custom_fields() {
 	);
 	add_meta_box(
 		'project_images',
-		_x( 'Screenshots', 'project' ),
+		__( 'Screenshots', 'cndev' ),
 		'cndev_meta_project_images',
 		'projects',
 		'normal',
@@ -79,6 +79,9 @@ function cndev_meta_save( $post_id ) {
 
 	// Update project link.
 	cndev_update_meta( $post_id, 'project_link' );
+
+	// Update project repository link.
+	cndev_update_meta( $post_id, 'project_repository' );
 
 	// Update project link.
 	cndev_update_meta( $post_id, 'project_color' );
