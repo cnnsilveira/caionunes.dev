@@ -216,7 +216,6 @@ function cndev_social_icons() {
 	$markup = '
 		<div class="cndev_social_icons">
 			<ul>
-				<li><a href="https://www.twitch.tv/caiodigdin_" target="_blank"><i class="fa-brands fa-twitch"></i><span>Twitch</span></a></li>
 				<li><a href="https://github.com/cnnsilveira/" target="_blank"><i class="fa-brands fa-github"></i><span>Github</span></a></li>
 				<li><a href="https://www.linkedin.com/in/caio-nuness/" target="_blank"><i class="fa-brands fa-linkedin-in"></i><span>Linkedin</span></a></li>
 			</ul>
