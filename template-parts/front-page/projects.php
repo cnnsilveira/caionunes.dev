@@ -61,19 +61,28 @@ foreach ( $projects as $project ) {
 				<span class="separator"></span>
 				<p>' . $project_content . '</p>
 			</div>
-			<div class="project-links">
-				<a href="#">
+			<div class="project-links">';
+
+	$projects_content .= ! empty( $project_repo ) ? '
+				<a class="repo" href="' . esc_url( $project_repo ) . '" target="_blank">
+					<span>' . __( 'Repo', 'cndev' ) . '</span>
 					<i class="fa-brands fa-github"></i>
 				</a>
-				<a href="' . esc_url( get_post_meta( $project->ID, '_project_link', true ) ) . '" target="_blank">
-					' . _x( 'View Project', 'project' ) . '
+	' : '';
+
+	$projects_content .= ! empty( $project_link ) ? '
+				<a class="live-site" href="' . esc_url( $project_link ) . '" target="_blank">
+					<span>' . __( 'Live site', 'cndev' ) . '</span>
 				</a>
+	' : '';
+
+	$projects_content .= '
 			</div>
 		</div>
 	';
 }
 
-$project_selector = '
+$markup = '
 	<div class="project-selector">
 		<div class="project-selector--items">
 			' . $thumbs . '
@@ -82,9 +91,6 @@ $project_selector = '
 			<a href="#" class="project-filter">' . __( 'Filters', 'cndev' ) . '</a>
 		</div>
 	</div>
-';
-
-$content = '
 	<div class="left">
 	' . $projects_content . '
 	</div>
@@ -99,48 +105,6 @@ $content = '
 		</div>
 	</div>
 ';
-
-$markup = $project_selector . $content;
-/*
-foreach ( $projects as $project ) {
-	$markup .= '
-	<div class="project-wrap">
-
-		<div class="project-title-group">
-			<div class="project-title">
-				<h3>' . $project->post_title . '</h3>
-			</div><!-- .project-title -->
-			<div class="project-technologies">
-	';
-	foreach ( get_the_terms( $project->ID, 'technologies' ) as $tech ) {
-		$markup .= '<a class="tech" href="' . esc_url( get_term_link( $tech->term_id ) ) . '" target="_blank">' . $tech->name . '</a>';
-	}
-	$markup .= '
-			</div> <!-- .project-technologies -->
-		</div><!-- .project-title-group -->
-
-		<div class="project-images-group">
-			<div class="project-thumbnail">
-				' . get_the_post_thumbnail( $project->ID, 'full', false ) . '
-			</div><!-- .project-thumbnail -->
-		</div><!-- .project-images-group -->
-
-		<div class="project-content-group">
-			<div class="project-content">
-				<p>' . $project->post_content . '</p>
-			</div><!-- .project-content -->
-		</div><!-- .project-content-group -->
-
-		<div class="project-link">
-			<a href="' . esc_url( get_post_meta( $project->ID, '_project_link', true ) ) . '" target="_blank">
-				' . _x( 'View Project', 'project' ) . '
-			</a>
-		</div><!-- .project-link -->
-
-	</div><!-- .project-wrap -->
-	';
-}
-*/
 
 cndev_section(
 	array(
