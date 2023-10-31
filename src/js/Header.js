@@ -21,6 +21,22 @@ class Header {
 				});
 			}
 
+			// Loader spinner
+			
+			$(window).on('load', () => {
+				setTimeout(() => {
+					$('.cndev_loader').toggleClass('loading complete');
+
+					setTimeout(() => {
+						$('.cndev_loader').slideUp(500);
+						setTimeout(() => {
+							$('.cndev_loader').remove();
+						}, 600);
+					}, 1500);
+				}, 750);
+			});
+			
+
 			// Scroll event.
             if ( $(window).scrollTop() > 0 && ! $('body').hasClass('scrolled') ) {
                 $('body').addClass('scrolled');
