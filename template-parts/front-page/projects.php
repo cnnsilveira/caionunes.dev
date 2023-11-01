@@ -34,10 +34,11 @@ foreach ( $projects as $project ) {
 	} else {
 		$active_class = '';
 	}
+
 	$thumbs .= '
-		<div class="project-thumb ' . $active_class . '" data-project-id="' . $project->ID . '" style="background: ' . $project_color . ';">
+		<div class="project-thumb ' . $active_class . '" data-project-id="' . $project->ID . '">
+			<span class="thumb-bg" style="background: ' . $project_color . ';"></span>
 			' . $project_thumb . '
-			<span>' . $project_title . '</span>
 			<a class="project-thumb--click"></a>
 		</div>
 	';

@@ -21,8 +21,24 @@ class Header {
 				});
 			}
 
+			const aboutInner = $('.cndev_section[data-content="about"] .cndev_section--inner');
+			const projectsInner = $('.cndev_section[data-content="projects"] .cndev_section--inner');
+			let counter = 0;
+			$('body').onClassChange((el, newClass) => {
+				if ( $(el).hasClass('about') && $(aboutInner).is(':hidden') ) {
+					$(aboutInner).slideToggle(500);
+				} else if ( $(el).hasClass('projects') && $(projectsInner).is(':hidden') ) {
+					counter++;
+					if ( counter === 1 ) {
+						$(aboutInner).slideToggle(500);
+						setTimeout(() => {
+							$(projectsInner).slideToggle(500);
+						}, 600);
+					}
+				}
+			});
+
 			// Loader spinner
-			
 			$(window).on('load', () => {
 				setTimeout(() => {
 					$('.cndev_loader').toggleClass('loading complete');
@@ -57,17 +73,23 @@ class Header {
 			});
 
 			// Inner content.
-			
 			$("header").onClassChange((el, newClass) => {
 				if ( $('header').hasClass('scrolled') ) {
-					$('.cndev_header--inner').css({background: 'linear-gradient(360deg, #0807082a, #00000000)', backdropFilter: 'blur(20px)', width: '1000px'});
+					$('.cndev_header--inner').css({background: 'linear-gradient(360deg, #0807082a, #00000000)', backdropFilter: 'blur(20px)'});
 				} else {
-					$('.cndev_header--inner').css({width: '135px'});
 					setTimeout(() => {
 						$('.cndev_header--inner').css({background: 'none', blur: '0px'});
 					}, 250);
 				}
 			});
+
+			const headerInner = $('.cndev_header--inner');
+			$(window).on('scroll', () => {
+				var scrollTop = $(this).scrollTop();
+				if ( scrollTop >= 0 && scrollTop < 1000 ) {
+					$(headerInner).width(scrollTop);
+				}
+			})
 			
 		});
     }
