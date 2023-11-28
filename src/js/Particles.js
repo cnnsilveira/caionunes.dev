@@ -6,7 +6,7 @@ class Particles {
 
     events() {
         jQuery( function( $ ) {
-            particlesJS("particles-js", 
+            particlesJS("particles-js",
             {
                 particles: {
                     number: { value: 160, density: { enable: false, value_area: 800 } },
@@ -15,7 +15,7 @@ class Particles {
                     opacity: { value: 1, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
                     size: { value: 1, random: false, anim: { enable: true, speed: 0, size_min: 0, sync: true } },
                     line_linked: { enable: false, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                    move: { enable: true, speed: 0.05, direction: "top", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 600 } },
+                    move: { enable: true, speed: 0.05, direction: "bottom", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 600 } },
                 },
                 interactivity: {
                     detect_on: "canvas",

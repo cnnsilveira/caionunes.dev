@@ -23,17 +23,31 @@ class FrontPage {
 			const blueBackground = $('.cndev_particles .overlay.bottom');
 			const aboutSection = $('.cndev_section[data-content="about"]');
 			const projectsSection = $('.cndev_section[data-content="projects"]');
+			const particlesSection = $('.cndev_particles');
+			const windowHeight = $(window).height();
+			const scrollHeight = (windowHeight * 1.5) * $('.cndev_main .cndev_section').length;
+			console.log(scrollHeight);
+			const displayAbout = windowHeight / 2;
+			const displayProjects = windowHeight * 1.3;
+
+			var particlesParallax;
             $(window).scroll(function() {
 				var scrollTop = $(this).scrollTop();
 				// Hero fade.
-				$(heroContent).css({
-					opacity: function() {
-						var elementHeight = $(this).height();
-						return 0 + (elementHeight - scrollTop) / elementHeight;
-					}
-				});
+				// $(heroContent).css({
+				// 	opacity: function() {
+				// 		var elementHeight = $(this).height();
+				// 		return 0 + (elementHeight - scrollTop) / elementHeight;
+				// 	}
+				// });
 
-				if ( scrollTop >= $(aboutSection).offset().top - 200 ) {
+				if ( scrollTop >= displayAbout ) {
+					$('header').addClass('scrolled');
+				} else {
+					$('header').removeClass('scrolled');
+				}
+
+				if ( scrollTop >= displayAbout ) {
 					if ( ! $('body').hasClass('about') && ! $('body').hasClass('projects') ) {
 						$('body').addClass('about');
 					}
@@ -43,9 +57,8 @@ class FrontPage {
 					}
 				}
 
-				if ( scrollTop >= $(projectsSection).offset().top - 200 ) {
+				if ( scrollTop >= displayProjects ) {
 					if ( ! $('body').hasClass('projects') ) {
-						$('body').removeClass('about');
 						$('body').addClass('projects');
 					}
 				} else {
@@ -53,17 +66,42 @@ class FrontPage {
 						$('body').removeClass('projects');
 					}
 				}
+
+				// particlesParallax = `-${ scrollTop * 0.10 }px`;
+				// $(particlesSection).css({'bottom': particlesParallax});
+
 				
-				var controllingScroll;
-				$(blueBackground).css({
-					bottom: function() {
-						controllingScroll = -scrollTop;
-						if ( ! $('body').hasClass('about') ) {
-							controllingScroll = -scrollTop;
-							return -scrollTop;
-						}
-					}
-				});
+				// if (Math.abs(lastScrollTop - scrollTop) >= delta) {
+				// 	$(blueBackground).css({
+				// 		bottom: function() {
+				// 			// controllingScroll = -scrollTop;
+				// 			// if ( ! $('body').hasClass('about') ) {
+				// 			// 	controllingScroll = -scrollTop;
+				// 			// 	return -scrollTop;
+				// 			// }
+
+				// 			let bottomValue = parseInt($(blueBackground).css('bottom'));
+				// 			let speed = 30;
+
+				// 			if ( bottomValue <= 0 && bottomValue >= -windowHeight ) {
+				// 				if (scrollTop > lastScrollTop) {
+				// 					controllingScroll -= speed;
+				// 				} else {
+				// 					controllingScroll += speed;
+				// 				}
+				// 			} else {
+				// 				if (scrollTop > lastScrollTop) {
+				// 					controllingScroll += speed;
+				// 				} else {
+				// 					controllingScroll -= speed;
+				// 				}
+				// 			}
+
+				// 			return controllingScroll;
+				// 		}
+				// 	});
+				// 	lastScrollTop = scrollTop;
+				// }
             });
 
 			// Background movement.
