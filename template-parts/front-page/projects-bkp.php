@@ -52,7 +52,7 @@ foreach ( $projects as $project ) {
 	';
 }
 
-cndev_section(
+cndev__section(
 	array(
 		'tag'     => 'section',
 		'title'   => 'Projects',

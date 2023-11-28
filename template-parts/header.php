@@ -9,8 +9,8 @@
  * @license GPL-3.0
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
-$header_id = 'cndev_header';
-$markup    = '<div class="' . $header_id . '--logo">' . cndev_do_logo( 75, '#fff' ) . '</div>';
+$header_id = 'cndev__header';
+$markup    = '<div class="' . $header_id . '--logo">' . cndev__do_logo( 75, '#fff' ) . '</div>';
 
 if ( ! is_404() ) {
 	$markup .= '
@@ -29,7 +29,7 @@ if ( ! is_404() ) {
 	';
 }
 
-cndev_section(
+cndev__section(
 	array(
 		'tag'     => 'header',
 		'content' => $markup,

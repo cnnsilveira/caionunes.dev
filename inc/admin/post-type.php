@@ -10,13 +10,13 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_action( 'init', 'cndev_project_post_type' );
+add_action( 'init', 'cndev__project_post_type' );
 /**
  * Creates the Projects post type.
  *
  * @package Portfolio
  */
-function cndev_project_post_type() {
+function cndev__project_post_type() {
 	$labels = array(
 		'name'                  => __( 'Projects', 'cndev' ),
 		'singular_name'         => __( 'Project', 'cndev' ),
@@ -65,13 +65,13 @@ function cndev_project_post_type() {
 	add_theme_support( 'post-thumbnails' );
 }
 
-add_action( 'init', 'cndev_projects_taxonomies' );
+add_action( 'init', 'cndev__projects_taxonomies' );
 /**
  * Creates the Projects taxonomy.
  *
  * @package Portfolio
  */
-function cndev_projects_taxonomies() {
+function cndev__projects_taxonomies() {
 	// Technologies.
 	$tech_labels = array(
 		'name'          => __( 'Technologies', 'cndev' ),

@@ -1,3 +1,3 @@
 <?php
 
-cndev_not_admin_redir();
+cndev__not_admin_redir();

@@ -10,7 +10,7 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_filter( 'body_class', 'cndev_body_classes', 10, 2 );
+add_filter( 'body_class', 'cndev__body_classes', 10, 2 );
 /**
  * Modifies the body classes.
  *
@@ -21,7 +21,7 @@ add_filter( 'body_class', 'cndev_body_classes', 10, 2 );
  *
  * @package Portfolio
  */
-function cndev_body_classes( $wp_classes, $extra_classes ) {
+function cndev__body_classes( $wp_classes, $extra_classes ) {
 
 	$whitelist = array( 'home', 'error404', 'admin-bar' );
 

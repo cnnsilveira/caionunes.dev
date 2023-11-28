@@ -10,13 +10,13 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_action( 'wp_enqueue_scripts', 'cndev_front_enqueues' );
+add_action( 'wp_enqueue_scripts', 'cndev__front_enqueues' );
 /**
  * Enqueues scripts and styles after compiling and minifying.
  *
  * @package Portfolio
  */
-function cndev_front_enqueues() {
+function cndev__front_enqueues() {
 	// Remove default WP CSS variables.
 	wp_dequeue_style( 'classic-theme-styles' );
 	wp_dequeue_style( 'global-styles' );
@@ -40,8 +40,8 @@ function cndev_front_enqueues() {
 	wp_enqueue_script( 'particles', 'http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js', array(), '1.0.0', true );
 }
 
-add_action( 'admin_enqueue_scripts', 'cndev_admin_enqueues' );
-function cndev_admin_enqueues() {
+add_action( 'admin_enqueue_scripts', 'cndev__admin_enqueues' );
+function cndev__admin_enqueues() {
 	global $pagenow;
 	$is_post = 'post.php' === $pagenow;
 	$has_get = isset( $_GET['action'] ) && 'edit' === $_GET['action'];

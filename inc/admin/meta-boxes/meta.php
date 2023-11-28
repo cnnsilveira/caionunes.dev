@@ -15,17 +15,17 @@ require_once __DIR__ . '/partials/link.php';
 require_once __DIR__ . '/partials/color.php';
 require_once __DIR__ . '/partials/images.php';
 
-add_action( 'add_meta_boxes', 'cndev_custom_fields' );
+add_action( 'add_meta_boxes', 'cndev__custom_fields' );
 /**
  * Register the projects custom meta.
  *
  * @package Portfolio
  */
-function cndev_custom_fields() {
+function cndev__custom_fields() {
 	add_meta_box(
 		'project_content',
 		__( 'Front page excerpt', 'cndev' ),
-		'cndev_meta_project_content',
+		'cndev__meta_project_content',
 		'projects',
 		'normal',
 		'high'
@@ -33,7 +33,7 @@ function cndev_custom_fields() {
 	add_meta_box(
 		'project_link',
 		__( 'Links', 'cndev' ),
-		'cndev_meta_project_link',
+		'cndev__meta_project_link',
 		'projects',
 		'normal',
 		'high'
@@ -41,7 +41,7 @@ function cndev_custom_fields() {
 	add_meta_box(
 		'project_color',
 		__( 'Predominant color', 'cndev' ),
-		'cndev_meta_project_color',
+		'cndev__meta_project_color',
 		'projects',
 		'normal',
 		'high'
@@ -49,14 +49,14 @@ function cndev_custom_fields() {
 	add_meta_box(
 		'project_images',
 		__( 'Screenshots', 'cndev' ),
-		'cndev_meta_project_images',
+		'cndev__meta_project_images',
 		'projects',
 		'normal',
 		'high'
 	);
 }
 
-add_action( 'save_post', 'cndev_meta_save' );
+add_action( 'save_post', 'cndev__meta_save' );
 /**
  * Updates the custom fields data on the database.
  *
@@ -64,7 +64,7 @@ add_action( 'save_post', 'cndev_meta_save' );
  *
  * @package Portfolio
  */
-function cndev_meta_save( $post_id ) {
+function cndev__meta_save( $post_id ) {
 	// Capability.
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
@@ -75,22 +75,22 @@ function cndev_meta_save( $post_id ) {
 	}
 
 	// Update project link.
-	cndev_update_meta( $post_id, 'project_content' );
+	cndev__update_meta( $post_id, 'project_content' );
 
 	// Update project link.
-	cndev_update_meta( $post_id, 'project_link' );
+	cndev__update_meta( $post_id, 'project_link' );
 
 	// Update project repository link.
-	cndev_update_meta( $post_id, 'project_repository' );
+	cndev__update_meta( $post_id, 'project_repository' );
 
 	// Update project link.
-	cndev_update_meta( $post_id, 'project_color' );
+	cndev__update_meta( $post_id, 'project_color' );
 
 	// Update project desktop image.
-	cndev_update_meta( $post_id, 'project_desktop_image' );
+	cndev__update_meta( $post_id, 'project_desktop_image' );
 
 	// Update project mobile image.
-	cndev_update_meta( $post_id, 'project_mobile_image' );
+	cndev__update_meta( $post_id, 'project_mobile_image' );
 }
 
 /**
@@ -102,7 +102,7 @@ function cndev_meta_save( $post_id ) {
  *
  * @package Portfolio
  */
-function cndev_update_meta( $post_id, $field_name ) {
+function cndev__update_meta( $post_id, $field_name ) {
 	// Action and name.
 	$nonce_action = $field_name . '_action';
 	$nonce_name   = $field_name . '_nonce';

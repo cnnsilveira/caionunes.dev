@@ -25,12 +25,12 @@ class Header {
 			
 			$(window).on('load', () => {
 				setTimeout(() => {
-					$('.cndev_loader').toggleClass('loading complete');
+					$('.cndev__loader').toggleClass('loading complete');
 
 					setTimeout(() => {
-						$('.cndev_loader').slideUp(500);
+						$('.cndev__loader').slideUp(500);
 						setTimeout(() => {
-							$('.cndev_loader').remove();
+							$('.cndev__loader').remove();
 						}, 600);
 					}, 1500);
 				}, 750);
@@ -50,7 +50,7 @@ class Header {
             });
 
 			// Scroll to top.
-			$('header .cndev_logo, .cndev_header--scroll').on('click', () => {
+			$('header .cndev__logo, .cndev__header--scroll').on('click', () => {
 				$('html, body').animate({
 					scrollTop: 0
 				}, 0);
@@ -60,11 +60,11 @@ class Header {
 			
 			$("header").onClassChange((el, newClass) => {
 				if ( $('header').hasClass('scrolled') ) {
-					$('.cndev_header--inner').css({background: 'linear-gradient(360deg, #0807082a, #00000000)', backdropFilter: 'blur(20px)', width: '1000px'});
+					$('.cndev__header--inner').css({background: 'linear-gradient(360deg, #0807082a, #00000000)', backdropFilter: 'blur(20px)', width: '1000px'});
 				} else {
-					$('.cndev_header--inner').css({width: '135px'});
+					$('.cndev__header--inner').css({width: '135px'});
 					setTimeout(() => {
-						$('.cndev_header--inner').css({background: 'none', blur: '0px'});
+						$('.cndev__header--inner').css({background: 'none', blur: '0px'});
 					}, 250);
 				}
 			});

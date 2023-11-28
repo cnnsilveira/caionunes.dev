@@ -12,7 +12,7 @@
 
 $markup = '<span>&copy; Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
 
-cndev_section(
+cndev__section(
 	array(
 		'tag'     => 'footer',
 		'content' => $markup,
