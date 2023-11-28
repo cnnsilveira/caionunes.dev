@@ -1,4 +1,4 @@
-<div class="cndev_adm">
+<div class="cndev__adm">
 	<nav>
 		<ul>
 			<li><a title="<?php echo __( 'Settings', 'cndev' ); ?>" href="<?php echo esc_url( admin_url() ); ?>"><i class="fa-solid fa-gear"></i></a></li>

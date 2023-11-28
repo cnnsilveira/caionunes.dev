@@ -19,7 +19,7 @@
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_do_logo( int $size = 75, string $color = '#0f0f0f' ) {
+function cndev__do_logo( int $size = 75, string $color = '#0f0f0f' ) {
 	$svg = wp_remote_get( CNDEV_URI . '/inc/assets/img/logo.svg' )['body'];
 
 	$style  = 'style="';
@@ -27,9 +27,9 @@ function cndev_do_logo( int $size = 75, string $color = '#0f0f0f' ) {
 	$style .= 'fill: ' . $color . '; stroke: ' . $color . ';';
 	$style .= '"';
 
-	$logo  = '<div class="cndev_logo" ' . wp_kses_post( $style ) . '>';
+	$logo  = '<div class="cndev__logo" ' . wp_kses_post( $style ) . '>';
 	$logo .= $svg;
-	$logo .= '</div><!-- .cndev_logo -->';
+	$logo .= '</div><!-- .cndev__logo -->';
 
 	return $logo;
 }
@@ -45,8 +45,8 @@ function cndev_do_logo( int $size = 75, string $color = '#0f0f0f' ) {
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_section_id( string $page, string $section = null ) {
-	$section_id = 'cndev_' . $page;
+function cndev__section_id( string $page, string $section = null ) {
+	$section_id = 'cndev__' . $page;
 	if ( null !== $section ) {
 		$section_id .= '_' . $section;
 	}
@@ -60,12 +60,12 @@ function cndev_section_id( string $page, string $section = null ) {
  * @param string $class The id of the section.
  * @param string $title The section title.
  * @param string $content The content.
- * @param bool   $cndev_echo Whether to echo the content or not.
+ * @param bool   $cndev__echo Whether to echo the content or not.
  *
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_section( array $args ) {
+function cndev__section( array $args ) {
 	// Arguments validation.
 	$required = array( 'tag', 'content' );
 	foreach ( $required as $req ) {
@@ -86,11 +86,11 @@ function cndev_section( array $args ) {
 	$section_echo  = array_key_exists( 'echo', $args ) ? $args['echo'] : true;
 
 	// Classes.
-	$cndev_pattern = 'cndev_' . $section_tag;
-	$section_class = 'class="' . $cndev_pattern . '"';
-	$inner_class   = 'class="' . $cndev_pattern . '--inner"';
-	$title_class   = 'class="' . $cndev_pattern . '--title"';
-	$content_class = 'class="' . $cndev_pattern . '--content"';
+	$cndev__pattern = 'cndev__' . $section_tag;
+	$section_class  = 'class="' . $cndev__pattern . '"';
+	$inner_class    = 'class="' . $cndev__pattern . '--inner"';
+	$title_class    = 'class="' . $cndev__pattern . '--title"';
+	$content_class  = 'class="' . $cndev__pattern . '--content"';
 
 	// Title markup.
 	$title = '';
@@ -139,7 +139,7 @@ function cndev_section( array $args ) {
 	// Section markup.
 	$markup  = '<' . $section_tag . ' ' . $id_attr . $section_class . $data . '>';
 	$markup .= $inner;
-	$markup .= '</' . $section_tag . '><!-- .' . $cndev_pattern . ' -->';
+	$markup .= '</' . $section_tag . '><!-- .' . $cndev__pattern . ' -->';
 
 	if ( $section_echo ) {
 		echo $markup;
@@ -157,11 +157,11 @@ function cndev_section( array $args ) {
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev_main_tag( bool $open, string $current_page = '' ) {
-	echo $open ? '<main class="cndev_main' . esc_attr( $current_page ) . '">' : '</main><!-- .cndev_main' . esc_attr( $current_page ) . ' -->';
+function cndev__main_tag( bool $open, string $current_page = '' ) {
+	echo $open ? '<main class="cndev__main' . esc_attr( $current_page ) . '">' : '</main><!-- .cndev__main' . esc_attr( $current_page ) . ' -->';
 }
 
-function cndev_about_tabs() {
+function cndev__about_tabs() {
 	$content = array(
 		'yesterday'      => array(
 			'title'   => 'Yesterday',
@@ -185,13 +185,13 @@ function cndev_about_tabs() {
 	return $content;
 }
 
-function cndev_about_selector( string $default ) {
+function cndev__about_selector( string $default ) {
 	$markup = '
 	<nav class="selector">
 		<ul>';
-	foreach ( cndev_about_tabs() as $tab_id => $content ) {
+	foreach ( cndev__about_tabs() as $tab_id => $content ) {
 		$active  = $default === $tab_id ? ' active' : '';
-		$markup .= '<li id="' . $tab_id . '" class="cndev_button' . $active . '">' . $content['title'] . '</li>';
+		$markup .= '<li id="' . $tab_id . '" class="cndev__button' . $active . '">' . $content['title'] . '</li>';
 	}
 	$markup .= '
 		</ul>
@@ -199,7 +199,7 @@ function cndev_about_selector( string $default ) {
 	return $markup;
 }
 
-function cndev_images( $selected ) {
+function cndev__images( $selected ) {
 	$images = array(
 		'mobile-frame' => CNDEV_IMG . '/mobile-frame.png',
 		'pc-frame'     => CNDEV_IMG . '/pc-frame.png',
@@ -212,24 +212,24 @@ function cndev_images( $selected ) {
 	return $images[ $selected ];
 }
 
-function cndev_social_icons() {
+function cndev__social_icons() {
 	$markup = '
-		<div class="cndev_social_icons">
+		<div class="cndev__social_icons">
 			<ul>
 				<li><a href="https://github.com/cnnsilveira/" target="_blank"><i class="fa-brands fa-github"></i><span>Github</span></a></li>
 				<li><a href="https://www.linkedin.com/in/caio-nuness/" target="_blank"><i class="fa-brands fa-linkedin-in"></i><span>Linkedin</span></a></li>
 			</ul>
-		</div><!-- .cndev_social_icons -->
+		</div><!-- .cndev__social_icons -->
 	';
 	return $markup;
 }
 
-function cndev_is_admin() {
+function cndev__is_admin() {
 	return current_user_can( 'administrator' );
 }
 
-function cndev_not_admin_redir() {
-	if ( ! cndev_is_admin() ) {
+function cndev__not_admin_redir() {
+	if ( ! cndev__is_admin() ) {
 		wp_redirect( home_url() );
 	}
 }

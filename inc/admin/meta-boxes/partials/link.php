@@ -6,7 +6,7 @@
  *
  * @package Portfolio
  */
-function cndev_meta_project_link( $post ) {
+function cndev__meta_project_link( $post ) {
 	// Project link.
 	$project_link = get_post_meta( $post->ID, '_project_link', true );
 	wp_nonce_field( 'project_link_action', 'project_link_nonce' );

@@ -6,7 +6,7 @@
  *
  * @package Portfolio
  */
-function cndev_meta_project_images( $post ) {
+function cndev__meta_project_images( $post ) {
 	// Project desktop image.
 	$project_desktop_image     = get_post_meta( $post->ID, '_project_desktop_image', true );
 	$project_desktop_image_uri = wp_get_attachment_image_url( $project_desktop_image, 'full' );
@@ -37,7 +37,7 @@ function cndev_meta_project_images( $post ) {
 							<div class="preview-container ' . esc_attr( $no_img_class ) . '">
 								<img src="' . esc_attr( $project_desktop_image_uri ) . '" width="392" height="234" id="project_desktop_image-preview" style="object-fit: fill">
 							</div>
-							<button type="button" class="button cndev_meta--upload">' . esc_html__( 'Select image', 'cndev' ) . '</button>
+							<button type="button" class="button cndev__meta--upload">' . esc_html__( 'Select image', 'cndev' ) . '</button>
 						</p>
 					</td>
 					<td>
@@ -46,7 +46,7 @@ function cndev_meta_project_images( $post ) {
 							<div class="preview-container ' . esc_attr( $no_img_class ) . '">
 								<img src="' . esc_attr( $project_mobile_image_uri ) . '" width="132" height="275" id="project_mobile_image-preview" style="object-fit: fill">
 							</div>
-							<button type="button" class="button cndev_meta--upload">' . esc_html__( 'Select image', 'cndev' ) . '</button>
+							<button type="button" class="button cndev__meta--upload">' . esc_html__( 'Select image', 'cndev' ) . '</button>
 						</p>
 					</td>
 				</tr>

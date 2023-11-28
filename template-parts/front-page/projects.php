@@ -96,17 +96,17 @@ $markup = '
 	</div>
 	<div class="right">
 		<div class="pc-mockup">
-			<div class="pc-frame" style="background-image: url(\'' . cndev_images( 'pc-frame' ) . '\')"></div>
+			<div class="pc-frame" style="background-image: url(\'' . cndev__images( 'pc-frame' ) . '\')"></div>
 			' . $desktop_images . '
 		</div>
 		<div class="mobile-mockup">
-			<div class="mobile-frame" style="background-image: url(\'' . cndev_images( 'mobile-frame' ) . '\')"></div>
+			<div class="mobile-frame" style="background-image: url(\'' . cndev__images( 'mobile-frame' ) . '\')"></div>
 			' . $mobile_images . '
 		</div>
 	</div>
 ';
 
-cndev_section(
+cndev__section(
 	array(
 		'tag'     => 'section',
 		'title'   => 'My work',

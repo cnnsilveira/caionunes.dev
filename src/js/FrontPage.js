@@ -7,8 +7,8 @@ class FrontPage {
 	events() {
 		jQuery(($) => {
 			function toggleTabContent() {
-				$('.cndev_section[data-content="about"] p.content').each((index, selector) => {
-					if ( $('.cndev_section[data-content="about"] .selector .cndev_button.active').attr('id') === $(selector).data('tab-content') ) {
+				$('.cndev__section[data-content="about"] p.content').each((index, selector) => {
+					if ( $('.cndev__section[data-content="about"] .selector .cndev__button.active').attr('id') === $(selector).data('tab-content') ) {
 						setTimeout(() => {
 							$(selector).slideDown(500);
 						}, 400);
@@ -20,7 +20,7 @@ class FrontPage {
 			
 			// Scroll event.
             var heroContent = $(".fade-out-effect");
-			var blueBackground = $('.cndev_particles .overlay.bottom');
+			var blueBackground = $('.cndev__particles .overlay.bottom');
             $(window).scroll(function() {
 				var scrollTop = $(this).scrollTop();
 				// Hero fade.
@@ -47,12 +47,12 @@ class FrontPage {
 				var pageY = e.pageY - ($(window).height() / 2);
 				var newValueX = width * pageX;
 				var newValueY = height * pageY;
-				$('.cndev_particles canvas').css("right", newValueX + "px ");
-				$('.cndev_particles canvas').css("bottom", newValueY + "px");
+				$('.cndev__particles canvas').css("right", newValueX + "px ");
+				$('.cndev__particles canvas').css("bottom", newValueY + "px");
 			});
 
 			// Hero scroll.
-			$('.cndev_section[data-content="hero"] .cndev_button').on('click', (event) => {
+			$('.cndev__section[data-content="hero"] .cndev__button').on('click', (event) => {
 				$('html, body').animate({
                     scrollTop: $('.'+$(event.target).attr('id')).offset().top
                 }, 0);
@@ -60,7 +60,7 @@ class FrontPage {
 
 			// Tabs content.
 			toggleTabContent();
-			$('.cndev_section[data-content="about"] .selector .cndev_button').on('click', (event) => {
+			$('.cndev__section[data-content="about"] .selector .cndev__button').on('click', (event) => {
 				$(event.target).addClass('active');
 				$(event.target).siblings().removeClass('active');
 				toggleTabContent();
@@ -76,17 +76,17 @@ class FrontPage {
 			const lastSection = Object.keys(availableSections).pop();
 			const reverseKeys = Object.keys(availableSections).reverse();
 			// Prev loop.
-			$('.cndev_prev_section').on('click', (e) => {
+			$('.cndev__prev_section').on('click', (e) => {
 				let nextChecker = 0;
 				let toReturn;
 				$.each(reverseKeys, (index, key) => {
 					var value = availableSections[key];
 					if ( 0 < nextChecker ) {
 						showHideIcons(e.target, key, firstSection);
-						$('.cndev_next_section').show();
+						$('.cndev__next_section').show();
 						$( 'h2.section-title' ).html(value);
 						$( 'h2.section-title' ).attr('id', key);
-						$( '#cndev_current-section' ).val(key);
+						$( '#cndev__current-section' ).val(key);
 						toReturn = key;
 						return false;
 					}
@@ -97,16 +97,16 @@ class FrontPage {
 				contentChange(toReturn);
 			});
 			// Next loop.
-			$('.cndev_next_section').on('click', (e) => {
+			$('.cndev__next_section').on('click', (e) => {
 				let nextChecker = 0;
 				let toReturn;
 				$.each(availableSections, (key, value) => {
 					if ( 0 < nextChecker ) {
 						showHideIcons(e.target, key, lastSection);
-						$('.cndev_prev_section').show();
+						$('.cndev__prev_section').show();
 						$( 'h2.section-title' ).html(value);
 						$( 'h2.section-title' ).attr('id', key);
-						$( '#cndev_current-section' ).val(key);
+						$( '#cndev__current-section' ).val(key);
 						toReturn = key;
 						return false;
 					}
@@ -126,7 +126,7 @@ class FrontPage {
 			}
 			// Content.
 			function contentChange(key) {
-				$('.cndev_section[data-content="about"] .content').each((index, selector) => {
+				$('.cndev__section[data-content="about"] .content').each((index, selector) => {
 					if ( $(selector).data('content') === key ) {
 						$(selector).show();
 					} else {

@@ -6,7 +6,7 @@
  *
  * @package Portfolio
  */
-function cndev_meta_project_content( $post ) {
+function cndev__meta_project_content( $post ) {
 	$project_content = get_post_meta( $post->ID, '_project_content', true );
 	wp_nonce_field( 'project_content_action', 'project_content_nonce' );
 	echo '
