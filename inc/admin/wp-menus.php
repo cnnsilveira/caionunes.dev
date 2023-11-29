@@ -10,9 +10,35 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_action( 'admin_menu', 'cndev__admin_menu' );
+if ( ! is_admin() ) {
+	add_filter( 'show_admin_bar', 'cndev__remove_wp_admin_bar' );
+	function cndev__remove_wp_admin_bar() {
+		return false;
+	}
+}
+
+add_action( 'init', 'cndev__options' );
 /**
- * Removes items from the admin area sidebar.
+ * Creates custom theme options.
+ *
+ * @package Portfolio
+ */
+function cndev__options() {
+	$options = array(
+		'cndev__contact_pin_curriculum',
+		'cndev__contact_pin_email',
+		'cndev__contact_pin_whatsapp',
+		'cndev__contact_form_selector',
+	);
+
+	foreach ( $options as $option ) {
+		add_option( $option );
+	}
+}
+
+add_action( 'admin_menu', 'cndev__admin_menu', 99 );
+/**
+ * Manipulates WP admin menu.
  *
  * @package Portfolio
  */
@@ -38,13 +64,17 @@ function cndev__admin_menu() {
 }
 
 function cndev__admin_settings_page() {
-	global $menu;
-	echo '<pre>';
-	print_r( get_current_screen() );
-	echo '</pre>';
-	echo '<div class="wrap">';
-	echo '<p>Here is where the form would go if I actually had options.</p>';
-	echo '</div>';
+	switch ( $_GET['page'] ) {
+		case 'cndev-about-me':
+			get_template_part( 'inc/admin/pages/about' );
+			break;
+		case 'cndev-projects':
+			get_template_part( 'inc/admin/pages/projects' );
+			break;
+		case 'cndev-contact':
+			get_template_part( 'inc/admin/pages/contact' );
+			break;
+	}
 }
 
 add_action( 'wp_before_admin_bar_render', 'cndev__admin_bar' );
@@ -91,11 +121,4 @@ function cndev__admin_bar() {
 			),
 		)
 	);
-}
-
-if ( ! is_admin() ) {
-	add_filter( 'show_admin_bar', 'cndev__remove_wp_admin_bar' );
-	function cndev__remove_wp_admin_bar() {
-		return false;
-	}
 }

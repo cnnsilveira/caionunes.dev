@@ -233,3 +233,29 @@ function cndev__not_admin_redir() {
 		wp_redirect( home_url() );
 	}
 }
+
+function cndev__is_nf_active() {
+	return ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'ninja-forms/ninja-forms.php' ) );
+}
+
+function cndev__available_forms() {
+	$forms = array();
+
+	if ( false === cndev__is_nf_active() ) {
+		return array( 'default' => 'No form matches the criteria' );
+	}
+
+	$raw_forms = Ninja_Forms()->form()->get_forms();
+
+	foreach ( $raw_forms as $form ) {
+		$forms[ $form->get_id() ] = $form->get_setting( 'title' );
+	}
+
+	if ( ! empty( $forms ) ) {
+		$forms = array( 'default' => 'Select form' ) + $forms;
+	} else {
+		$forms = array( 'default' => 'No form matches the criteria' );
+	}
+
+	return $forms;
+}
