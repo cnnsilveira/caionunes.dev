@@ -10,7 +10,17 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-$markup = '<span>&copy; Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
+$markup = '
+	<div class="contact">
+		<h3>Find me</h3>
+		' . cndev__contact_pins() . '
+	</div>
+	<div class="copy">
+		<span class="separator"></span>
+		<span>&copy; Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>
+	</div>
+	
+';
 
 cndev__section(
 	array(

@@ -173,8 +173,7 @@ function cndev__about_tabs() {
 		),
 		'for-companies'  => array(
 			'title'   => 'For companies',
-			'content' => 'The best problem solver you will ever find.',
-
+			'content' => 'The best problem solver you will ever find.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
 		),
 		'for-developers' => array(
 			'title'   => 'For developers',
@@ -222,6 +221,32 @@ function cndev__social_icons() {
 		</div><!-- .cndev__social_icons -->
 	';
 	return $markup;
+}
+
+function cndev__contact_form( $echo = false ) {
+	$selected_form = '<div class="cndev__contact-form">' . do_shortcode( '[ninja_forms id=' . get_option( 'cndev__contact_form_selector' ) . ']' ) . '</div>';
+
+	if ( ! $echo ) {
+		return $selected_form;
+	}
+	echo $selected_form;
+}
+
+function cndev__contact_pins( $echo = false ) {
+	$contact_pins = array(
+		'cndev__contact_pin_curriculum' => '<i class="fa-solid fa-graduation-cap"></i>',
+		'cndev__contact_pin_email'      => '<i class="fa-solid fa-envelope"></i>',
+		'cndev__contact_pin_whatsapp'   => '<i class="fa-brands fa-telegram"></i>',
+	);
+	$pin_markup   = '';
+	foreach ( $contact_pins as $pin => $icon ) {
+		$pin_markup .= '<p class="contact-pin">' . $icon . get_option( $pin ) . '</p>';
+	}
+	$pin_markup = '<div class="cndev__contact-pins">' . $pin_markup . '</div>';
+	if ( ! $echo ) {
+		return $pin_markup;
+	}
+	echo $pin_markup;
 }
 
 function cndev__is_admin() {

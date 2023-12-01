@@ -18,7 +18,7 @@ $markup     = '
 			<br>One Stack at a Time.
 		</h1>
 		<div class="buttons">
-			<a class="cndev__button">' . _x( 'About me', 'project' ) . '</a>
+			<a class="cndev__button">' . _x( 'Who\'s Caio?', 'project' ) . '</a>
 			<a class="cndev__button">' . _x( 'My work', 'project' ) . '</a>
 			<a class="cndev__button">' . _x( 'Get in touch', 'project' ) . '</a>
 		</div><!-- .buttons -->

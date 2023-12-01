@@ -336,13 +336,14 @@ section {
     } // &__header
 
     &__section {
-		min-height: 100vh;
+		// min-height: 100vh;
 		// background: linear-gradient(180deg, #00000000 0%, #080708cb 50%, var(--cndev-darker-blue) 100%);
 		width: 100%;
 		display: flex;
 		align-items: center;
 		position: relative;
 		z-index: 1;
+		margin-bottom: 100px;
 
 		p {
 			font-size: 20px;
@@ -770,24 +771,79 @@ section {
 				} // .right
 			}
 		} // &[data-content="projects"]
+		&[data-content="contact"] {
+			display: none;
+			background: linear-gradient(0deg, #000000c4, #00000000);
+
+			.cndev__section--content {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 50px;
+
+				.left {
+					width: 50%;
+
+					.nf-form-fields-required,
+					.nf-error-msg,
+					.nf-error.field-wrap .nf-field-element::after,
+					.nf-field-label {
+						display: none;
+					}
+				}
+
+				.right {
+					background: linear-gradient(90deg, rgba(0, 0, 0, 0) 8%, #11307470 100%);
+					border-radius: 50px;
+					padding: 50px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					gap: 20px;
+					height: fit-content;
+				}
+			}
+		} // &[data-content="contact"]
     } // &__section
 
 	&__footer {
-		position: absolute;
+		background: linear-gradient(0deg, var(--primary-color), #0c0c0c);
+		position: relative;
 		z-index: 1;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding-bottom: 30px;
-		text-align: center;
+
 		&--inner {
 			max-width: 1400px;
 			margin: 0 auto;
 		}
 		&--content {
+			position: relative;
+			min-height: 500px;
 			display: flex;
 			justify-content: center;
+			flex-direction: column;
+			gap: 20px;
 			width: 100%;
+			padding: 20px 0;
+			text-align: center;
+
+			.copy {
+				position: absolute;
+				bottom: 20px;
+				left: 0;
+				width: 100%;
+
+				.separator{
+					&::before {
+						content: '';
+						display: block;
+						width: 100%;
+						height: 1px;
+						background: linear-gradient(90deg, rgba(0, 0, 0, 0) 40%, rgba(255, 255, 255, 0.6352941176) 50%, rgba(0, 0, 0, 0) 60%);
+						margin-bottom: 18px;
+					}
+				}
+			}
 		}
 		span {
 			font-size: 14px;
