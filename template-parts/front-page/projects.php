@@ -58,7 +58,6 @@ foreach ( $projects as $project ) {
 		<div class="left--inner ' . $active_class . '" data-project-id="' . $project->ID . '">
 			<div class="project-content">
 				<h3>' . $project_title . '</h3>
-				<span class="separator"></span>
 				<p>' . $project_content . '</p>
 			</div>
 			<div class="project-links">';
