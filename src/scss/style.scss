@@ -306,7 +306,7 @@ section {
 		}
 		&--logo {
 			justify-content: center;
-			.cndev__logo {
+			.cndev__svg {
 				cursor: pointer;
 			}
 		}
@@ -522,24 +522,22 @@ section {
 			padding-top: 100px;
 			margin-bottom: 0;
 
+			.cndev__section--title {
+				margin-bottom: 50px;
+			}
 			.cndev__section--content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				flex-wrap: wrap;
 				gap: 0 75px;
 
 				.project-selector {
 					display: flex;
-					justify-content: center;
+					justify-content: space-between;
 					align-items: center;
-					gap: 75px;
 					width: 100%;
-					margin-bottom: 50px;
-
-					&--items, &--filters {
-						width: 40%;
-					}
+					margin-bottom: 20px;
+					padding: 0 30px;
 
 					&--items {
 						display: flex;
@@ -614,33 +612,46 @@ section {
 				
 				.left {
 					text-align: left;
-					box-shadow: 0 0 10px #00000036;
-					border-radius: 20px;
-					padding: 30px 40px;
 					flex-grow: 1;
-					width: 50%;
 
 					&--inner {
 						display: none;
 						flex-direction: column;
 						justify-content: space-between;
 						height: 100%;
-						gap: 25px;
+						gap: 10px;						
+						box-shadow: 0 0 10px #00000036;
+						border-radius: 20px;
+						padding: 30px 40px;
 						
 						&.active {
 							display: flex;
 						}
-						h3 {
-							font-size: 42px;
-							min-height: 60px;
+
+						.project-title {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
 							margin-bottom: 20px;
-							font-family: monospace;
+
+							h3 {
+								font-size: 42px;
+								min-height: 60px;
+								font-family: monospace;
+								margin-bottom: -10px;
+							}
+
+							a {
+								font-size: 24px;
+							}
 						}
 						.project-links {
 							display: flex;
 							flex-wrap: wrap;
 							justify-content: flex-start;
 							gap: 0 10px;
+							margin-top: 10px;
+
 							a {
 								font-size: 18px;
 								border: 1px solid transparent;
@@ -686,6 +697,7 @@ section {
 					justify-content: center;
 					align-items: center;
 					width: fit-content;
+					padding-top: 50px;
 
 					.pc-mockup {
 						transition: all .3s;
@@ -696,8 +708,8 @@ section {
 						justify-content: center;
 						transform: perspective(8cm) rotateX(0deg) rotateY(14deg);
 
-						&:hover {
-							margin-right: 30px;
+						&:has(a:hover) {
+							margin-right: 45px;
 							transform: rotateY(0) scale(1.1);
 						}
 
@@ -742,6 +754,12 @@ section {
 								display: initial;
 							}
 
+							a {
+								display: block;
+								position: relative;
+								z-index: 1;
+							}
+
 							img {
 								height: 235px;
 								object-fit: fill;
@@ -772,7 +790,7 @@ section {
 
 						//animation: swing 5s linear;
 
-						&:hover {
+						&:has(a:hover) {
 							transform: rotateY(0) scale(1.1);
 						}
 
@@ -808,6 +826,12 @@ section {
 
 							&.active {
 								display: initial;
+							}
+
+							a {
+								display: block;
+								position: relative;
+								z-index: 1;
 							}
 
 							img {

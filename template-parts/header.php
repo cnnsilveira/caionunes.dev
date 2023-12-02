@@ -10,7 +10,7 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 $header_id = 'cndev__header';
-$markup    = '<div class="' . $header_id . '--logo">' . cndev__do_logo( 75, '#fff' ) . '</div>';
+$markup    = '<div class="' . $header_id . '--logo">' . cndev__svg( 'logo', 75, '#fff' ) . '</div>';
 
 if ( ! is_404() ) {
 	$markup .= '

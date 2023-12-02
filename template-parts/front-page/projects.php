@@ -26,7 +26,9 @@ foreach ( $projects as $project ) {
 	$project_content       = get_post_meta( $project->ID, '_project_content', true );
 	$project_color         = get_post_meta( $project->ID, '_project_color', true );
 	$project_link          = get_post_meta( $project->ID, '_project_link', true );
-	$project_repo          = get_post_meta( $project->ID, '_project_repository', true );
+	$project_repo_source   = 'github' === get_post_meta( $project->ID, '_project_repository_source', true ) ? '<i class="fa-brands fa-github"></i>' : cndev__svg( 'gitlab', 24 );
+	$restrict_repo         = 'on' !== get_post_meta( $project->ID, '_project_repository_visibility', true ) ? ' restrict' : '';
+	$project_repo          = '' === $restrict_repo ? '' : get_post_meta( $project->ID, '_project_repository', true );
 
 	if ( 0 === $counter ) {
 		$active_class = 'active';
@@ -44,44 +46,33 @@ foreach ( $projects as $project ) {
 
 	$desktop_images .= '
 		<div class="project-desktop-image ' . $active_class . '" data-project-id="' . $project->ID . '">
-			' . $project_desktop_image . '
+			<a href="' . $project_link . '" title="' . $project_title . '" target="_blank">' . $project_desktop_image . '</a>
 		</div>
 	';
 
 	$mobile_images .= '
 		<div class="project-mobile-image ' . $active_class . '" data-project-id="' . $project->ID . '">
-			' . $project_mobile_image . '
+		<a href="' . $project_link . '" title="' . $project_title . '" target="_blank">' . $project_mobile_image . '</a>
 		</div>
 	';
 
 	$projects_content .= '
 		<div class="left--inner ' . $active_class . '" data-project-id="' . $project->ID . '">
-			<div class="project-content">
+			<div class="project-title">
 				<h3>' . $project_title . '</h3>
-				<p>' . $project_content . '</p>
+				<a class="repo ' . $restrict_repo . '" href="' . esc_url( $project_repo ) . '" target="_blank">
+					' . $project_repo_source . '
+				</a>
 			</div>
-			<div class="project-links">';
-
-	$projects_content .= ! empty( $project_repo ) ? '
-				<a class="repo" href="' . esc_url( $project_repo ) . '" target="_blank">
-					<span>' . __( 'Repo', 'cndev' ) . '</span>
-					<i class="fa-brands fa-github"></i>
-				</a>
-	' : '';
-
-	$projects_content .= ! empty( $project_link ) ? '
-				<a class="live-site" href="' . esc_url( $project_link ) . '" target="_blank">
-					<span>' . __( 'Live site', 'cndev' ) . '</span>
-				</a>
-	' : '';
-
-	$projects_content .= '
+			<div class="project-content">
+				<p>' . $project_content . '</p>
 			</div>
 		</div>
 	';
 }
 
 $markup = '
+	<div class="left">
 	<div class="project-selector">
 		<div class="project-selector--items">
 			' . $thumbs . '
@@ -90,7 +81,6 @@ $markup = '
 			<a href="#" class="project-filter">' . __( 'Filters', 'cndev' ) . '</a>
 		</div>
 	</div>
-	<div class="left">
 	' . $projects_content . '
 	</div>
 	<div class="right">

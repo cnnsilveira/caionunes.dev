@@ -11,25 +11,21 @@
  */
 
 /**
- * Outputs the website logo.
+ * Gets theme's SVG files.
  *
- * @param int    $size The size of the logo in pixels.
+ * @param string $which Name of the file.
+ * @param int    $width The size of the logo in pixels.
  * @param string $color The color of the logo.
  *
  * @package Portfolio
  * @source /inc/helper-functions.php
  */
-function cndev__do_logo( int $size = 75, string $color = '#0f0f0f' ) {
-	$svg = wp_remote_get( CNDEV_URI . '/inc/assets/img/logo.svg' )['body'];
+function cndev__svg( string $which, int $width = 75, string $color = '#0f0f0f' ) {
+	$svg = wp_remote_get( CNDEV_URI . '/inc/assets/img/svg/' . $which . '.svg' )['body'];
 
-	$style  = 'style="';
-	$style .= 'width: ' . $size . 'px; height: ' . $size . 'px; ';
-	$style .= 'fill: ' . $color . '; stroke: ' . $color . ';';
-	$style .= '"';
+	$style = 'style="width: ' . $width . 'px; fill: ' . $color . '; stroke: ' . $color . ';"';
 
-	$logo  = '<div class="cndev__logo" ' . wp_kses_post( $style ) . '>';
-	$logo .= $svg;
-	$logo .= '</div><!-- .cndev__logo -->';
+	$logo = '<div class="cndev__svg" ' . wp_kses_post( $style ) . '>' . $svg . '</div><!-- .cndev__svg -->';
 
 	return $logo;
 }

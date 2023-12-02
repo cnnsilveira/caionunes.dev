@@ -18,7 +18,7 @@ $markup = '
 	</div>
 	<div class="right">
 		' . cndev__contact_pins() . '
-		' . cndev__do_logo( 200, '#ffffff' ) . '
+		' . cndev__svg( 'logo', 200, '#ffffff' ) . '
 	</div>
 ';
 

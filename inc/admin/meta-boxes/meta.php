@@ -81,7 +81,13 @@ function cndev__meta_save( $post_id ) {
 	cndev__update_meta( $post_id, 'project_link' );
 
 	// Update project repository link.
+	cndev__update_meta( $post_id, 'project_repository_source' );
+
+	// Update project repository link.
 	cndev__update_meta( $post_id, 'project_repository' );
+
+	// Update project repository visibility.
+	cndev__update_meta( $post_id, 'project_repository_visibility' );
 
 	// Update project link.
 	cndev__update_meta( $post_id, 'project_color' );
