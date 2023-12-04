@@ -236,7 +236,7 @@ function cndev__contact_pins( $echo = false ) {
 	);
 	$pin_markup   = '';
 	foreach ( $contact_pins as $pin => $icon ) {
-		$pin_markup .= '<p class="contact-pin">' . $icon . get_option( $pin ) . '</p>';
+		$pin_markup .= '<p class="contact-pin">' . $icon . '</p>';
 	}
 	$pin_markup = '<div class="cndev__contact-pins">' . $pin_markup . '</div>';
 	if ( ! $echo ) {

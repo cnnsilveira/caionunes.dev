@@ -17,7 +17,6 @@ cndev__main_tag( true );
 get_template_part( 'template-parts/front-page/hero' );
 get_template_part( 'template-parts/front-page/about' );
 get_template_part( 'template-parts/front-page/projects' );
-get_template_part( 'template-parts/front-page/contact' );
 cndev__main_tag( false );
 
 get_footer();

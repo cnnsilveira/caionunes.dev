@@ -516,6 +516,11 @@ section {
 		} // &[data-content="about"]
 
 		&[data-content="projects"] {
+			::selection {
+				color: #fff;
+				background: var(--primary-color);
+			}
+
 			background: #fff;
     		color: #000000;
 			padding-bottom: 150px;
@@ -587,24 +592,7 @@ section {
 								opacity: 1;
 							}
 							&:not(.active):hover {
-								// padding: 0 14px;
-								// gap: 0;
-								// background: none !important;
-								// border: 1px solid #fff;
 								opacity: 1;
-
-								// img {
-
-								// 	width: 0px;
-								// 	height: 0px;
-								// 	visibility: hidden;
-								// }
-
-								// span {
-								// 	margin-left: 0;
-								// 	visibility: visible;
-								// 	opacity: 1;
-								// }
 							}
 						}
 					}
@@ -641,8 +629,88 @@ section {
 								margin-bottom: -10px;
 							}
 
+							.repo {
+								font-size: 24px;
+
+								&.restrict {
+									position: relative;    
+									width: 26px;
+									height: 26px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									transition: all .3s;
+									cursor: pointer;
+
+									&::before {
+										content: "This project repository is private. Feel free to contact me, and I can walk you through it during a call.";
+										font-size: 12px;
+										width: 235px;
+										position: absolute;
+										color: #fff;
+										background: #303030;
+										right: -235px;
+										top: -21px;
+										padding: 10px;
+										border-radius: 10px;
+										opacity: 0;
+										visibility: hidden;
+										transition: all .5s, opacity .25s;
+										z-index: -1;
+									}
+
+									&:hover {
+										&::before {
+											right: 40px;
+											transition: all .3s .5s, opacity .3s .65s;
+											opacity: 1;
+											visibility: visible;
+										}
+										.fa-ban {
+											visibility: visible;
+											opacity: 1;
+											transition: all .3s .3s;
+										}
+
+										.cndev__svg {
+											width: 18px !important;
+											margin-top: -2px;
+											opacity: 0.5;
+										}
+									}
+
+									.fa-ban {
+										visibility: hidden;
+										opacity: 0;
+										position: absolute;
+										transition: all .3s;
+									}
+									.cndev__svg {
+										transition: all .3s;
+									}
+								}
+
+								&:has(i) {
+									margin-top: -5px;
+								}
+
+								i {
+									color: #0D1017;
+									font-size: 26px;
+								}
+							}
+
 							a {
 								font-size: 24px;
+
+								&:has(i) {
+									margin-top: -5px;
+								}
+							}
+
+							.repo i {
+								color: #0D1017;
+								font-size: 26px;
 							}
 						}
 						.project-links {
@@ -846,40 +914,6 @@ section {
 				} // .right
 			}
 		} // &[data-content="projects"]
-		&[data-content="contact"] {
-			display: none;
-			background: linear-gradient(0deg, #000000c4, #00000000);
-
-			.cndev__section--content {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 50px;
-
-				.left {
-					width: 50%;
-
-					.nf-form-fields-required,
-					.nf-error-msg,
-					.nf-error.field-wrap .nf-field-element::after,
-					.nf-field-label {
-						display: none;
-					}
-				}
-
-				.right {
-					background: linear-gradient(90deg, rgba(0, 0, 0, 0) 8%, #11307470 100%);
-					border-radius: 50px;
-					padding: 50px;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
-					gap: 20px;
-					height: fit-content;
-				}
-			}
-		} // &[data-content="contact"]
     } // &__section
 
 	&__footer {
@@ -897,13 +931,107 @@ section {
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
-			gap: 20px;
 			width: 100%;
-			padding: 20px 0;
+			padding-bottom: 20px;
 			text-align: center;
 
+			.contact {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 50px;
+				padding: 150px 0;
+
+				.left {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+
+					.slogan {
+						margin-bottom: -50px;
+						text-transform: uppercase;
+						font-weight: 300;
+						font-size: 12px;
+					}
+
+					.cndev__contact-pins {
+						margin-top: -50px;
+						display: flex;
+						gap: 20px;
+					}
+				}
+
+				.right {
+					flex-grow: 1;
+
+					.nf-form-fields-required,
+					.nf-error-msg,
+					.nf-error.field-wrap .nf-field-element::after,
+					.nf-field-label {
+						display: none;
+					}
+
+					.nf-form-content {
+						padding: 0;
+						margin: 0;
+					}
+
+					.nf-field-container {
+						margin-bottom: 15px;
+					}
+
+					.submit-container {
+						margin-bottom: 0;
+					}
+
+					
+
+					input:not([type="submit"]),
+					textarea {
+						font-family: monospace;
+						border-radius: 0 20px 20px 20px;
+						color: var(--primary-color);
+						border-color: #f7f7f7;
+					}
+
+					
+
+					textarea {
+						resize: vertical;
+						border-radius: 0 20px;
+						transition: none;
+						min-height: 200px;
+					}
+
+					input[type="submit"] {
+						font-family: monospace;
+						border-radius: 20px 0 20px 20px;
+						padding: 10px 14px;
+						border: 1px solid #fff;
+						cursor: pointer;
+						transition: all 200ms linear;
+						backdrop-filter: blur(20px);
+						width: 100%;
+						background: none;
+						cursor: pointer;
+
+						&:hover {
+							box-shadow: 0 0 2px 2px var(--primary-color);
+							background: #fff;
+							color: var(--primary-color);
+						}
+					}
+
+					.nf-pass.field-wrap .nf-field-element:after {
+						color: #024802b8;
+						right: 15px;
+						font-size: 20px;
+					}
+				}
+			}
+
 			.copy {
-				position: absolute;
 				bottom: 20px;
 				left: 0;
 				width: 100%;

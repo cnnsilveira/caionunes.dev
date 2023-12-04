@@ -27,8 +27,7 @@ foreach ( $projects as $project ) {
 	$project_color         = get_post_meta( $project->ID, '_project_color', true );
 	$project_link          = get_post_meta( $project->ID, '_project_link', true );
 	$project_repo_source   = 'github' === get_post_meta( $project->ID, '_project_repository_source', true ) ? '<i class="fa-brands fa-github"></i>' : cndev__svg( 'gitlab', 24 );
-	$restrict_repo         = 'on' !== get_post_meta( $project->ID, '_project_repository_visibility', true ) ? ' restrict' : '';
-	$project_repo          = '' === $restrict_repo ? '' : get_post_meta( $project->ID, '_project_repository', true );
+	$project_repo_tag      = 'on' === get_post_meta( $project->ID, '_project_repository_visibility', true ) ? '<div class="repo restrict"><i class="fa-solid fa-ban"></i>' . $project_repo_source . '</div>' : '<a class="repo" href="' . esc_url( get_post_meta( $project->ID, '_project_repository', true ) ) . '" target="_blank">' . $project_repo_source . '</a>';
 
 	if ( 0 === $counter ) {
 		$active_class = 'active';
@@ -60,9 +59,7 @@ foreach ( $projects as $project ) {
 		<div class="left--inner ' . $active_class . '" data-project-id="' . $project->ID . '">
 			<div class="project-title">
 				<h3>' . $project_title . '</h3>
-				<a class="repo ' . $restrict_repo . '" href="' . esc_url( $project_repo ) . '" target="_blank">
-					' . $project_repo_source . '
-				</a>
+				' . $project_repo_tag . '
 			</div>
 			<div class="project-content">
 				<p>' . $project_content . '</p>

@@ -12,8 +12,15 @@
 
 $markup = '
 	<div class="contact">
-		<h3>Find me</h3>
+	<div class="left">
+		<span class="slogan">Make it extraordinary with</span>
+		' . cndev__svg( 'logo', 450, '#ffffff' ) . '
 		' . cndev__contact_pins() . '
+	</div>
+	<div class="right">
+		' . cndev__contact_form() . '
+	</div>
+
 	</div>
 	<div class="copy">
 		<span class="separator"></span>
