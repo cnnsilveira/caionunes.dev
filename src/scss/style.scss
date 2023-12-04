@@ -917,7 +917,7 @@ section {
     } // &__section
 
 	&__footer {
-		background: linear-gradient(0deg, var(--primary-color), #0c0c0c);
+		// background: linear-gradient(0deg, var(--primary-color), #0c0c0c);
 		position: relative;
 		z-index: 1;
 
@@ -927,7 +927,7 @@ section {
 		}
 		&--content {
 			position: relative;
-			min-height: 500px;
+			min-height: 100dvh;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -964,6 +964,10 @@ section {
 
 				.right {
 					flex-grow: 1;
+					::selection {
+						color: #fff;
+						background: var(--primary-color);
+					}
 
 					.nf-form-fields-required,
 					.nf-error-msg,
@@ -1032,6 +1036,7 @@ section {
 			}
 
 			.copy {
+				position: absolute;
 				bottom: 20px;
 				left: 0;
 				width: 100%;
