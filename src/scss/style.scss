@@ -528,13 +528,13 @@ section {
 			margin-bottom: 0;
 
 			.cndev__section--title {
-				margin-bottom: 50px;
+				margin-bottom: 120px;
 			}
 			.cndev__section--content {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				gap: 0 75px;
+				gap: 0 100px;
 
 				.project-selector {
 					display: flex;
@@ -597,10 +597,20 @@ section {
 						}
 					}
 				}
+
+				.left,
+				.right {
+					min-height: 500px;
+				}
 				
 				.left {
 					text-align: left;
-					flex-grow: 1;
+					max-width: 40%;
+					min-height: 500px;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
 
 					&--inner {
 						display: none;
@@ -656,7 +666,6 @@ section {
 										opacity: 0;
 										visibility: hidden;
 										transition: all .5s, opacity .25s;
-										z-index: -1;
 									}
 
 									&:hover {
@@ -761,11 +770,12 @@ section {
 					} // &--inner
 				} // .left
 				.right {
+					transform: scale(1.4);
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					width: fit-content;
-					padding-top: 50px;
+					width: 100%;
 
 					.pc-mockup {
 						transition: all .3s;
@@ -775,9 +785,10 @@ section {
 						display: flex;
 						justify-content: center;
 						transform: perspective(8cm) rotateX(0deg) rotateY(14deg);
+						margin-right: -20px;
 
 						&:has(a:hover) {
-							margin-right: 45px;
+							margin-right: 30px;
 							transform: rotateY(0) scale(1.1);
 						}
 
@@ -859,6 +870,7 @@ section {
 						//animation: swing 5s linear;
 
 						&:has(a:hover) {
+							margin-left: 20px;
 							transform: rotateY(0) scale(1.1);
 						}
 
@@ -914,142 +926,146 @@ section {
 				} // .right
 			}
 		} // &[data-content="projects"]
+		&[data-content="contact"] {
+			.cndev__section--inner {
+				max-width: 1400px;
+				margin: 0 auto;
+				padding: 100px 0;
+			}
+			.cndev__section--title {
+				margin-bottom: 60px;
+			}
+			.cndev__section--content {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				width: 100%;
+				padding-bottom: 20px;
+				text-align: center;
+	
+				.contact {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 50px;
+	
+					.left {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-direction: column;
+	
+						.slogan {
+							margin-bottom: -50px;
+							text-transform: uppercase;
+							font-weight: 300;
+							font-size: 12px;
+						}
+	
+						.cndev__contact-pins {
+							margin-top: -50px;
+							display: flex;
+							gap: 20px;
+						}
+					}
+	
+					.right {
+						flex-grow: 1;
+						::selection {
+							color: #fff;
+							background: var(--primary-color);
+						}
+	
+						.nf-form-fields-required,
+						.nf-error-msg,
+						.nf-error.field-wrap .nf-field-element::after,
+						.nf-field-label {
+							display: none;
+						}
+	
+						.nf-form-content {
+							padding: 0;
+							margin: 0;
+						}
+	
+						.nf-field-container {
+							margin-bottom: 15px;
+						}
+	
+						.submit-container {
+							margin-bottom: 0;
+						}
+	
+						
+	
+						input:not([type="submit"]),
+						textarea {
+							font-family: monospace;
+							border-radius: 0 20px 20px 20px;
+							color: var(--primary-color);
+							border-color: #f7f7f7;
+						}
+	
+						
+	
+						textarea {
+							resize: vertical;
+							border-radius: 0 20px;
+							transition: none;
+							min-height: 200px;
+						}
+	
+						input[type="submit"] {
+							font-family: monospace;
+							border-radius: 20px 0 20px 20px;
+							padding: 10px 14px;
+							border: 1px solid #fff;
+							cursor: pointer;
+							transition: all 200ms linear;
+							backdrop-filter: blur(20px);
+							width: 100%;
+							background: none;
+							cursor: pointer;
+	
+							&:hover {
+								box-shadow: 0 0 2px 2px var(--primary-color);
+								background: #fff;
+								color: var(--primary-color);
+							}
+						}
+	
+						.nf-pass.field-wrap .nf-field-element:after {
+							color: #024802b8;
+							right: 15px;
+							font-size: 20px;
+						}
+					}
+				}
+			}
+		}
     } // &__section
 
 	&__footer {
 		// background: linear-gradient(0deg, var(--primary-color), #0c0c0c);
 		position: relative;
 		z-index: 1;
+		text-align: center;
 
-		&--inner {
-			max-width: 1400px;
-			margin: 0 auto;
-		}
-		&--content {
-			position: relative;
-			min-height: 100dvh;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
+		.copy {
+			position: absolute;
+			bottom: 20px;
+			left: 0;
 			width: 100%;
-			padding-bottom: 20px;
-			text-align: center;
 
-			.contact {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 50px;
-				padding: 150px 0;
-
-				.left {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					flex-direction: column;
-
-					.slogan {
-						margin-bottom: -50px;
-						text-transform: uppercase;
-						font-weight: 300;
-						font-size: 12px;
-					}
-
-					.cndev__contact-pins {
-						margin-top: -50px;
-						display: flex;
-						gap: 20px;
-					}
-				}
-
-				.right {
-					flex-grow: 1;
-					::selection {
-						color: #fff;
-						background: var(--primary-color);
-					}
-
-					.nf-form-fields-required,
-					.nf-error-msg,
-					.nf-error.field-wrap .nf-field-element::after,
-					.nf-field-label {
-						display: none;
-					}
-
-					.nf-form-content {
-						padding: 0;
-						margin: 0;
-					}
-
-					.nf-field-container {
-						margin-bottom: 15px;
-					}
-
-					.submit-container {
-						margin-bottom: 0;
-					}
-
-					
-
-					input:not([type="submit"]),
-					textarea {
-						font-family: monospace;
-						border-radius: 0 20px 20px 20px;
-						color: var(--primary-color);
-						border-color: #f7f7f7;
-					}
-
-					
-
-					textarea {
-						resize: vertical;
-						border-radius: 0 20px;
-						transition: none;
-						min-height: 200px;
-					}
-
-					input[type="submit"] {
-						font-family: monospace;
-						border-radius: 20px 0 20px 20px;
-						padding: 10px 14px;
-						border: 1px solid #fff;
-						cursor: pointer;
-						transition: all 200ms linear;
-						backdrop-filter: blur(20px);
-						width: 100%;
-						background: none;
-						cursor: pointer;
-
-						&:hover {
-							box-shadow: 0 0 2px 2px var(--primary-color);
-							background: #fff;
-							color: var(--primary-color);
-						}
-					}
-
-					.nf-pass.field-wrap .nf-field-element:after {
-						color: #024802b8;
-						right: 15px;
-						font-size: 20px;
-					}
-				}
-			}
-
-			.copy {
-				position: absolute;
-				bottom: 20px;
-				left: 0;
-				width: 100%;
-
-				.separator{
-					&::before {
-						content: '';
-						display: block;
-						width: 100%;
-						height: 1px;
-						background: linear-gradient(90deg, rgba(0, 0, 0, 0) 35%, rgba(255, 255, 255, 0.6352941176) 50%, rgba(0, 0, 0, 0) 65%);
-						margin-bottom: 18px;
-					}
+			.separator{
+				&::before {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background: linear-gradient(90deg, rgba(0, 0, 0, 0) 35%, rgba(255, 255, 255, 0.6352941176) 50%, rgba(0, 0, 0, 0) 65%);
+					margin-bottom: 18px;
 				}
 			}
 		}
