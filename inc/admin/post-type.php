@@ -52,7 +52,7 @@ function cndev__project_post_type() {
 		'show_in_menu'       => true,
 		'menu_icon'          => 'dashicons-schedule',
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'cndev' ),
+		'rewrite'            => array( 'slug' => 'project' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,

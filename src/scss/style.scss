@@ -336,14 +336,13 @@ section {
     } // &__header
 
     &__section {
-		// min-height: 100vh;
+		min-height: 100dvh;
 		// background: linear-gradient(180deg, #00000000 0%, #080708cb 50%, var(--cndev-darker-blue) 100%);
 		width: 100%;
 		display: flex;
 		align-items: center;
 		position: relative;
 		z-index: 1;
-		margin-bottom: 100px;
 
 		p {
 			font-size: 20px;
@@ -430,8 +429,10 @@ section {
         } // &[data-content="hero"]
 		&[data-content="about"] {
             margin-top: 115vh;
-			min-height: 100vh;
 			margin-bottom: 0;
+			opacity: var(--opacity);
+			will-change: opacity;
+
 			
 			.cndev__section--title {
 				
@@ -541,7 +542,7 @@ section {
 					justify-content: space-between;
 					align-items: center;
 					width: 100%;
-					margin-bottom: 20px;
+					margin-bottom: 30px;
 					padding: 0 30px;
 
 					&--items {
@@ -619,7 +620,7 @@ section {
 						height: 100%;
 						gap: 10px;						
 						box-shadow: 0 0 10px #00000036;
-						border-radius: 20px;
+						border-radius: 20px 0 0 0;
 						padding: 30px 40px;
 						
 						&.active {
@@ -934,6 +935,14 @@ section {
 			}
 			.cndev__section--title {
 				margin-bottom: 60px;
+
+				&::after {
+					content: '';
+					display: block;
+					width: 100%;
+					height: 1px;
+					background: linear-gradient(90deg, #00000000 25%, #ffffffa2 50%, #00000000 75%);
+				}
 			}
 			.cndev__section--content {
 				position: relative;

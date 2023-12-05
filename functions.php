@@ -11,7 +11,7 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_action( 'init', 'cndev__private_website' );
+// add_action( 'init', 'cndev__private_website' );
 /**
  * Provisory redirection if not admin user.
  *

@@ -30,12 +30,11 @@ class FrontPage {
 						return 0 + (elementHeight - scrollTop) / elementHeight;
 					}
 				});
-				// $(blueBackground).css({
-				// 	bottom: function() {
-				// 		return -scrollTop;
-				// 	}
-				// });
-
+				$(blueBackground).css({
+					bottom: function() {
+						return -scrollTop;
+					}
+				});
             });
 
 			// Background movement.
@@ -51,10 +50,10 @@ class FrontPage {
 				$('.cndev__particles canvas').css("bottom", newValueY + "px");
 			});
 
-			// Hero scroll.
-			$('.cndev__section[data-content="hero"] .cndev__button').on('click', (event) => {
+			// Scrolling to sections.
+			$('.cndev__section_link').on('click', (event) => {
 				$('html, body').animate({
-                    scrollTop: $('.'+$(event.target).attr('id')).offset().top
+                    scrollTop: $('.cndev__section[data-content="'+ $(event.target).data('content') +'"]').offset().top
                 }, 0);
 			});
 

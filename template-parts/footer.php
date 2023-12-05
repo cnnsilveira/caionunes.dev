@@ -15,7 +15,6 @@ $markup = '
 		<span class="separator"></span>
 		<span>&copy; Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>
 	</div>
-	
 ';
 
 cndev__section(

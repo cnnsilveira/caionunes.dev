@@ -23,13 +23,17 @@ add_filter( 'body_class', 'cndev__body_classes', 10, 2 );
  */
 function cndev__body_classes( $wp_classes, $extra_classes ) {
 
-	$whitelist = array( 'home', 'error404', 'admin-bar' );
+	$whitelist = array();
 
 	$wp_classes = array_intersect( $wp_classes, $whitelist );
 
 	$wp_classes = array_merge( $wp_classes, (array) $extra_classes );
 
 	$wp_classes[] = 'cndev';
+
+	if ( cndev__is_admin() ) {
+		$wp_classes[] = 'admin';
+	}
 
 	return $wp_classes;
 }
