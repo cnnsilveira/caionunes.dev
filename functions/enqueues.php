@@ -28,8 +28,8 @@ function cndev__front_enqueues() {
 	wp_dequeue_script( 'wp-embed' );
 
     if ( CNDEV_MINIFIED ) {
-    	 wp_enqueue_style( 'cndev', CNDEV_ASSETS . '/assets/min/styles.min.css', array(), '1.0.0' );
-    	 wp_enqueue_script( 'cndev', CNDEV_ASSETS . '/assets/min/app.min.js', array( 'jquery' ), '1.0.0', true );
+    	 wp_enqueue_style( 'cndev', CNDEV_ASSETS . '/min/styles.min.css', array(), '1.0.0' );
+    	 wp_enqueue_script( 'cndev', CNDEV_ASSETS . '/min/app.min.js', array( 'jquery' ), '1.0.0', true );
     } else {
         wp_enqueue_style( 'cndev', CNDEV_URI . '/build/index.css', array(), '1.0.0' );
         Wp_enqueue_script( 'cndev', CNDEV_URI . '/build/index.js', array( 'jquery' ), '1.0.0', true );
