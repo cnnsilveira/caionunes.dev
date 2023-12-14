@@ -31,6 +31,9 @@ define( 'CNDEV_INC', CNDEV_DIR . '/inc' );
 define( 'CNDEV_ADMIN', CNDEV_INC . '/admin' );
 define( 'CNDEV_FUNCTIONS', CNDEV_INC . '/functions' );
 
+// Minified assets.
+define( 'CNDEV_MINIFIED', true );
+
 // Helper functions.
 require_once CNDEV_FUNCTIONS . '/helper-functions.php';
 // Body classes.
