@@ -21,7 +21,7 @@
  * @source /inc/helper-functions.php
  */
 function cndev__svg( string $which, int $width = 75, string $color = '#0f0f0f' ) {
-	$svg = wp_remote_get( CNDEV_URI . '/inc/assets/img/svg/' . $which . '.svg' )['body'];
+	$svg = wp_remote_get( CNDEV_ASSETS . '/svg/' . $which . '.svg' )['body'];
 
 	$style = 'style="width: ' . $width . 'px; fill: ' . $color . '; stroke: ' . $color . ';"';
 
@@ -196,12 +196,9 @@ function cndev__about_selector( string $default ) {
 
 function cndev__images( $selected ) {
 	$images = array(
-		'mobile-frame' => CNDEV_IMG . '/mobile-frame.png',
-		'pc-frame'     => CNDEV_IMG . '/pc-frame.png',
-		'laptop-frame' => CNDEV_IMG . '/laptop-frame.webp',
-		'about-me'     => CNDEV_IMG . '/about-me.webp',
-		'eu'           => CNDEV_IMG . '/eu.png',
-		'eu-ia'        => CNDEV_IMG . '/eu-ia.jpg',
+		'mobile-frame' => CNDEV_ASSETS . '/img/mobile-frame.png',
+		'pc-frame'     => CNDEV_ASSETS . '/img/pc-frame.png',
+		'eu-ia'        => CNDEV_ASSETS . '/img/ai-pixel-art.jpg',
 	);
 
 	return $images[ $selected ];

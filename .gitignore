@@ -1,4 +1,5 @@
-build/
+build/*.php
+build/*.map
 node_modules/
 test/
 package-lock.json

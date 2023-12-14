@@ -1,7 +1,7 @@
 
 jQuery(function($) {
 
-	$('.cndev_meta--upload').on('click', (e) => {
+	$('.cndev__meta--upload').on('click', (e) => {
 		e.preventDefault();
 		const parent = $(e.target).closest('td');
 		const hiddenInput = $(parent).find('input[type="hidden"]');

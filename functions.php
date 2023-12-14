@@ -26,10 +26,9 @@ function cndev__private_website() {
 // Constants.
 define( 'CNDEV_DIR', get_template_directory() );
 define( 'CNDEV_URI', get_template_directory_uri() );
-define( 'CNDEV_IMG', CNDEV_URI . '/inc/assets/img' );
-define( 'CNDEV_INC', CNDEV_DIR . '/inc' );
-define( 'CNDEV_ADMIN', CNDEV_INC . '/admin' );
-define( 'CNDEV_FUNCTIONS', CNDEV_INC . '/functions' );
+define( 'CNDEV_ASSETS', CNDEV_URI . '/assets' );
+define( 'CNDEV_ADMIN', CNDEV_DIR . '/admin' );
+define( 'CNDEV_FUNCTIONS', CNDEV_DIR . '/functions' );
 
 // Minified assets.
 define( 'CNDEV_MINIFIED', true );

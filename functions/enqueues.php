@@ -28,10 +28,10 @@ function cndev__front_enqueues() {
 	wp_dequeue_script( 'wp-embed' );
 
     if ( CNDEV_MINIFIED ) {
-    	 wp_enqueue_style( 'cndev', CNDEV_URI . '/inc/assets/css/style.min.css', array(), '1.0.0' );
-    	 wp_enqueue_script( 'cndev', CNDEV_URI . '/inc/assets/js/scripts.min.js', array( 'jquery' ), '1.0.0', true );
+    	 wp_enqueue_style( 'cndev', CNDEV_ASSETS . '/assets/min/styles.min.css', array(), '1.0.0' );
+    	 wp_enqueue_script( 'cndev', CNDEV_ASSETS . '/assets/min/app.min.js', array( 'jquery' ), '1.0.0', true );
     } else {
-        wp_enqueue_style( 'cndev', CNDEV_URI . '/build/style-index.css', array(), '1.0.0' );
+        wp_enqueue_style( 'cndev', CNDEV_URI . '/build/index.css', array(), '1.0.0' );
         Wp_enqueue_script( 'cndev', CNDEV_URI . '/build/index.js', array( 'jquery' ), '1.0.0', true );
     }
     
@@ -54,9 +54,9 @@ function cndev__admin_enqueues() {
 
 	if ( $is_edit || $is_new ) {
 		wp_enqueue_media();
-		wp_enqueue_script( 'cndev-admin', CNDEV_URI . '/inc/admin/assets/cndev-admin.js', array( 'jquery', 'wp-color-picker' ), '1.0.0', true );
+		wp_enqueue_script( 'cndev-admin', CNDEV_URI . '/admin/assets/cndev-admin.js', array( 'jquery', 'wp-color-picker' ), '1.0.0', true );
 	}
-	wp_enqueue_style( 'cndev-admin', CNDEV_URI . '/inc/admin/assets/cndev-admin.css', array(), '1.0.0' );
+	wp_enqueue_style( 'cndev-admin', CNDEV_URI . '/admin/assets/cndev-admin.css', array(), '1.0.0' );
 }
 
 // Remove default emoji support.
