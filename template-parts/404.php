@@ -1,7 +1,7 @@
 <?php
 
 $markup = '
-		<a href="' . esc_url( home_url() ) . '" class="cndev__button">Voltar ao início</a>
+		<a href="' . esc_url( home_url() ) . '" class="cndev__button">' . esc_html__( 'Voltar ao início', 'cndev' ) . '</a>
 ';
 
 cndev__section(

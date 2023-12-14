@@ -14,7 +14,7 @@ $section_id = cndev__section_id( 'home', 'about' );
 // Markup.
 $markup = cndev__about_selector( 'today' ) . '
 	<div class="left">
-		<img src="' . esc_url( cndev__images( 'eu-ia' ) ) . '">
+		<img alt="' . esc_html__( 'AI generated Pixel Art Caio Nunes', 'cndev' ) . '" src="' . esc_url( cndev__images( 'eu-ia' ) ) . '">
 	</div>
 	<div class="right">
 		<div>
@@ -32,7 +32,7 @@ $markup .= '
 cndev__section(
 	array(
 		'tag'     => 'section',
-		'title'   => 'Who\'s Caio?',
+		'title'   => esc_html__( 'Who\'s Caio?' ),
 		'content' => $markup,
 		'data'    => array(
 			'content' => 'about',

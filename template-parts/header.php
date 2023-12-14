@@ -17,9 +17,9 @@ if ( ! is_404() ) {
 		<div class="' . $header_id . '--nav">
 			<nav>
 				<ul>
-					<li><a class="cndev__section_link" data-content="about">' . _x( 'Who\'s Caio?', 'cndev' ) . '</a></li>
-					<li><a class="cndev__section_link" data-content="projects">' . _x( 'My work', 'cndev' ) . '</a></li>
-					<li><a class="cndev__section_link" data-content="contact">' . _x( 'Get in touch', 'cndev' ) . '</a></li>
+					<li><button class="cndev__section_link" data-content="about">' . _x( 'Who\'s Caio?', 'cndev' ) . '</button></li>
+					<li><button class="cndev__section_link" data-content="projects">' . _x( 'My work', 'cndev' ) . '</button></li>
+					<li><button class="cndev__section_link" data-content="contact">' . _x( 'Get in touch', 'cndev' ) . '</button></li>
 				</ul>
 			</nav>
 		</div>

@@ -27,14 +27,14 @@ function cndev__front_enqueues() {
 	// Remove embedded links.
 	wp_dequeue_script( 'wp-embed' );
 
-    if ( CNDEV_MINIFIED ) {
-    	 wp_enqueue_style( 'cndev', CNDEV_ASSETS . '/min/styles.min.css', array(), '1.0.0' );
-    	 wp_enqueue_script( 'cndev', CNDEV_ASSETS . '/min/app.min.js', array( 'jquery' ), '1.0.0', true );
-    } else {
-        wp_enqueue_style( 'cndev', CNDEV_URI . '/build/index.css', array(), '1.0.0' );
-        Wp_enqueue_script( 'cndev', CNDEV_URI . '/build/index.js', array( 'jquery' ), '1.0.0', true );
-    }
-    
+	if ( CNDEV_MINIFIED ) {
+		wp_enqueue_style( 'cndev', CNDEV_ASSETS . '/min/styles.min.css', array(), '1.0.0' );
+		wp_enqueue_script( 'cndev', CNDEV_ASSETS . '/min/app.min.js', array( 'jquery' ), '1.0.0', true );
+	} else {
+		wp_enqueue_style( 'cndev', CNDEV_URI . '/build/style-index.css', array(), '1.0.0' );
+		Wp_enqueue_script( 'cndev', CNDEV_URI . '/build/index.js', array( 'jquery' ), '1.0.0', true );
+	}
+
 	// Include custom font.
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), '1.0.0' );
 	// Include Font Awesome kit.

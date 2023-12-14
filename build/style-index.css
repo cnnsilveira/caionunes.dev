@@ -34,6 +34,10 @@ html {
   background: #fff;
 }
 
+button {
+  all: unset;
+}
+
 /* Media queries functions */
 /* Animations */
 /* Styles */
@@ -294,7 +298,7 @@ section article {
   display: flex;
   transition: all 200ms linear;
 }
-.cndev__header--nav ul a {
+.cndev__header--nav ul .cndev__section_link {
   cursor: pointer;
   font-size: 20px;
   font-weight: 100;
@@ -380,13 +384,13 @@ section article {
   justify-content: center;
   gap: 20px;
 }
-.cndev__section[data-content=hero] .fade-out-effect .buttons a {
+.cndev__section[data-content=hero] .fade-out-effect .buttons .cndev__button {
   font-size: 20px;
   line-height: 1em;
   font-weight: 600;
   padding: 18px 24px;
 }
-.cndev__section[data-content=hero] .fade-out-effect .buttons a:hover {
+.cndev__section[data-content=hero] .fade-out-effect .buttons .cndev__button:hover {
   background: #fff;
   color: var(--primary-color);
 }

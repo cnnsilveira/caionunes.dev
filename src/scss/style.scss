@@ -24,6 +24,10 @@ html {
 	background: #fff;
 }
 
+button {
+	all: unset;
+}
+
 /* Media queries functions */
 @mixin desktop {
     @media (min-width: 1024px) {
@@ -319,7 +323,7 @@ section {
 			gap: 30px;
             display: flex;
             transition: all 200ms linear;
-			a {
+			.cndev__section_link {
 				cursor: pointer;
 				font-size: 20px;
 				font-weight: 100;
@@ -414,13 +418,13 @@ section {
 					justify-content: center;
 					gap: 20px;
 
-					a {
+					.cndev__button {
 						font-size: 20px;
 						line-height: 1em;
 						font-weight: 600;
 						padding: 18px 24px;
 					}
-					a:hover {
+					.cndev__button:hover {
 						background: #fff;
 						color: var(--primary-color);
 					}

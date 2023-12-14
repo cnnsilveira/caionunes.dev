@@ -13,7 +13,7 @@
 $markup = '
 	<div class="contact">
 		<div class="left">
-			<span class="slogan">Make it extraordinary with</span>
+			<span class="slogan">' . esc_html__( 'Make it extraordinary with', 'cndev' ) . '</span>
 			' . cndev__svg( 'logo', 450, '#ffffff' ) . '
 			' . cndev__contact_pins() . '
 		</div>
@@ -27,7 +27,7 @@ $markup = '
 cndev__section(
 	array(
 		'tag'     => 'section',
-		'title'   => 'Get in touch',
+		'title'   => esc_html__( 'Get in touch', 'cndev' ),
 		'content' => $markup,
 		'data'    => array(
 			'content' => 'contact',

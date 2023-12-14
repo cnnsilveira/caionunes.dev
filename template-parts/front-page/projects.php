@@ -95,7 +95,7 @@ $markup = '
 cndev__section(
 	array(
 		'tag'     => 'section',
-		'title'   => 'My work',
+		'title'   => esc_html__( 'My work', 'cndev' ),
 		'content' => $markup,
 		'data'    => array(
 			'content' => 'projects',

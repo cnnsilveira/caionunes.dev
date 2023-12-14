@@ -66,13 +66,13 @@ function cndev__admin_menu() {
 function cndev__admin_settings_page() {
 	switch ( $_GET['page'] ) {
 		case 'cndev-about-me':
-			get_template_part( 'inc/admin/pages/about' );
+			get_template_part( '/admin/pages/about' );
 			break;
 		case 'cndev-projects':
-			get_template_part( 'inc/admin/pages/projects' );
+			get_template_part( '/admin/pages/projects' );
 			break;
 		case 'cndev-contact':
-			get_template_part( 'inc/admin/pages/contact' );
+			get_template_part( '/admin/pages/contact' );
 			break;
 	}
 }
