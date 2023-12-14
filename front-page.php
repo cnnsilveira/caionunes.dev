@@ -85,6 +85,9 @@ if ( cndev__is_admin() ) {
 		.cndev__section[data-content="dev"] .cndev__section--title {
 			margin-bottom: 30px;
 		}
+		.cndev__section[data-content="dev"] .cndev__section--title h2 {
+			max-width: none;
+		}
 		.cndev__section[data-content="dev"] .cndev__wip {
 			display: flex;
 			flex-direction: column;
