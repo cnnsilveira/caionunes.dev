@@ -469,7 +469,7 @@ var StringEffect = function (el) {
       m.message = 0;
       m.current_length = 0;
       m.fadeBuffer = false;
-      m.messages = ['Web Developer', 'AI Explorer', 'Problem Solver', 'Gamer', 'Astronomy Enthusiast', 'Son', 'Coffee Maniac'];
+      m.messages = $(el).data('strings');
       setTimeout(m.animateIn, 0);
     };
     m.generateRandomString = function (length) {

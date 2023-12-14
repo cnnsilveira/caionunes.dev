@@ -11,6 +11,7 @@
  */
 
 $section_id = cndev__section_id( 'home', 'about' );
+
 // Markup.
 $markup = cndev__about_selector( 'today' ) . '
 	<div class="left">
@@ -18,7 +19,7 @@ $markup = cndev__about_selector( 'today' ) . '
 	</div>
 	<div class="right">
 		<div>
-			<h3 class="string-effect"></h3>
+			<h3 class="string-effect" data-strings=\'["' . esc_html__( 'Web Developer', 'cndev' ) . '", "' . esc_html__( 'AI Explorer', 'cndev' ) . '", "' . esc_html__( 'Problem Solver', 'cndev' ) . '", "' . esc_html__( 'Gamer', 'cndev' ) . '", "' . esc_html__( 'Astronomy Enthusiast', 'cndev' ) . '", "' . esc_html__( 'Son', 'cndev' ) . '", "' . esc_html__( 'Coffee Maniac', 'cndev' ) . '"]\'></h3>
 			<span class="separator"></span>';
 foreach ( cndev__about_tabs() as $tab_id => $content ) {
 	$markup .= '<p class="content" data-tab-content="' . $tab_id . '">' . $content['content'] . '</p>';
