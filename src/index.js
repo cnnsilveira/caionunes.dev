@@ -1,5 +1,5 @@
 // SCSS import.
-import "./scss/style.scss";
+import "./scss/styles.scss";
 
 // Scripts import.
 import FrontPage from "./js/FrontPage";

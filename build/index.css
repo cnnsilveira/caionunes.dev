@@ -1,7 +1,15 @@
-/*!********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/scss/style.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************/
-/* Browser spacing reset */
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/scss/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+:root {
+  --primary-color: #080708;
+  --cndev-blue: #14213D;
+  --cndev-darker-blue: #010b21;
+  --cndev-red: #DF2935;
+  --cndev-yellow: #FDCA40;
+  --cndev-grey: #E6E8E6;
+}
+
 *, ::before, ::after {
   margin: 0;
   padding: 0;
@@ -12,16 +20,6 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
-
-/* Colors */
-:root {
-  --primary-color: #080708;
-  --cndev-blue: #14213D;
-  --cndev-darker-blue: #010b21;
-  --cndev-red: #DF2935;
-  --cndev-yellow: #FDCA40;
-  --cndev-grey: #E6E8E6;
 }
 
 ::-moz-selection {
@@ -38,34 +36,19 @@ button {
   all: unset;
 }
 
-/* Media queries functions */
-/* Animations */
-/* Styles */
-section {
-  padding-right: 70px;
-  padding-left: 70px;
-}
-@media (min-width: 481px) and (max-width: 1023px) {
-  section {
-    padding-right: 50px;
-    padding-left: 50px;
-  }
-}
-@media (max-width: 480px) {
-  section {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-}
-section article {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+li {
+  list-style: none;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 50px;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 200ms linear;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.7em;
 }
 
 .cndev {
@@ -78,89 +61,36 @@ section article {
   display: flex;
   flex-direction: column;
 }
-.cndev li {
-  list-style: none;
-}
-.cndev a {
-  text-decoration: none;
-  color: inherit;
-  transition: all 200ms linear;
-}
-.cndev__loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000000;
-  overflow: hidden;
-  width: 100dvw;
-  height: 100dvh;
-  background: linear-gradient(180deg, var(--primary-color), #0c0c0c);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-}
-.cndev__loader svg {
-  fill: #fff;
-}
-.cndev__loader .hourglass {
-  width: 35px;
-  height: 35px;
-  transition: width 500ms 500ms, height 500ms 500ms, visibility 0ms 1000ms;
-  animation: spin 900ms linear infinite;
-}
-@keyframes spin {
-  50%, 100% {
-    transform: rotate(180deg);
-  }
-}
-.cndev__loader .check {
-  transition: transform 500ms 1000ms;
-  margin-left: -20px;
-  width: 50px;
-  height: 50px;
-}
-.cndev__loader.loading .check {
-  visibility: hidden;
-  transform: scale(0);
-  transition: transform 500ms 500ms;
-}
-.cndev__loader.complete .hourglass {
-  width: 0px;
-  height: 0px;
-  visibility: hidden;
-}
-.cndev__loader.complete .check {
-  visibility: initial;
-  transform: scale(1);
-}
-.cndev__adm {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100px;
-  position: fixed;
-  z-index: 999999;
-  top: 0;
-  right: 20px;
-  display: flex;
-  align-items: center;
-}
-.cndev__adm ul {
-  width: 100%;
-  padding: 8px 14px;
-  display: flex;
-  gap: 12px;
-  font-size: 16px;
+.cndev.scrolled .cndev__header--content {
   justify-content: space-between;
+}
+.cndev.scrolled .cndev__header--inner {
+  width: 1000px;
+  background: rgba(8, 7, 8, 0.4784313725);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
-  background: rgba(8, 7, 8, 0.4784313725);
-  border-radius: 20px;
-  opacity: 0.5;
-  transition: all 200ms linear;
 }
-.cndev__adm ul:hover {
+.cndev.scrolled .cndev__header--logo, .cndev.scrolled .cndev__header--scroll {
+  width: 10%;
+}
+.cndev.scrolled .cndev__header--logo {
+  justify-content: flex-start;
+}
+.cndev.scrolled .cndev__header--nav {
+  width: 100%;
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 500ms 450ms linear;
+}
+.cndev.scrolled .cndev__header--scroll {
+  visibility: visible;
+  opacity: 1;
+  text-align: end;
+  transition: opacity 500ms 450ms linear;
+}
+.cndev.scrolled .cndev__section .fade-out-effect {
+  display: none;
 }
 .cndev__button {
   padding: 10px 14px;
@@ -211,6 +141,144 @@ section article {
   margin: 0;
   opacity: 1;
 }
+.cndev__section {
+  padding-right: 70px;
+  padding-left: 70px;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 481px) and (max-width: 1023px) {
+  .cndev__section {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .cndev__section {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.cndev__section--inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.cndev__section--title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 80px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.cndev__section--title h2 {
+  text-align: center;
+  font-size: 50px;
+  width: 100%;
+  max-width: 450px;
+}
+.cndev__section--title i {
+  font-size: 24px;
+  cursor: pointer;
+}
+.cndev__section--title i:hover {
+  transform: scale(1.1);
+}
+
+.cndev__404 {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cndev__loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+  overflow: hidden;
+  width: 100dvw;
+  height: 100dvh;
+  background: linear-gradient(180deg, var(--primary-color), #0c0c0c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+.cndev__loader svg {
+  fill: #fff;
+}
+.cndev__loader .hourglass {
+  width: 35px;
+  height: 35px;
+  transition: width 500ms 500ms, height 500ms 500ms, visibility 0ms 1000ms;
+  animation: spin 900ms linear infinite;
+}
+@keyframes spin {
+  50%, 100% {
+    transform: rotate(180deg);
+  }
+}
+.cndev__loader .check {
+  transition: transform 500ms 1000ms;
+  margin-left: -20px;
+  width: 50px;
+  height: 50px;
+}
+.cndev__loader.loading .check {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 500ms 500ms;
+}
+.cndev__loader.complete .hourglass {
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+}
+.cndev__loader.complete .check {
+  visibility: initial;
+  transform: scale(1);
+}
+
+.cndev__adm {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100px;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+.cndev__adm ul {
+  width: 100%;
+  padding: 8px 14px;
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  justify-content: space-between;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  background: rgba(8, 7, 8, 0.4784313725);
+  border-radius: 20px;
+  opacity: 0.5;
+  transition: all 200ms linear;
+}
+.cndev__adm ul:hover {
+  opacity: 1;
+}
+
 .cndev__particles {
   position: fixed;
   top: 0;
@@ -242,6 +310,7 @@ section article {
   position: relative;
   z-index: -2;
 }
+
 .cndev__header {
   width: 100%;
   position: fixed;
@@ -311,41 +380,7 @@ section article {
 .cndev__header--scroll i {
   cursor: pointer;
 }
-.cndev__section {
-  min-height: 100dvh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-.cndev__section p {
-  font-size: 20px;
-  line-height: 1.7em;
-}
-.cndev__section--title {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 20px 80px;
-  position: relative;
-  margin-bottom: 30px;
-}
-.cndev__section--title h2 {
-  text-align: center;
-  font-size: 50px;
-  width: 100%;
-  max-width: 450px;
-}
-.cndev__section--title i {
-  font-size: 24px;
-  cursor: pointer;
-}
-.cndev__section--title i:hover {
-  transform: scale(1.1);
-}
+
 .cndev__section[data-content=hero] {
   width: 100dvw;
   height: 100dvh;
@@ -394,6 +429,7 @@ section article {
   background: #fff;
   color: var(--primary-color);
 }
+
 .cndev__section[data-content=about] {
   margin-top: 115vh;
   margin-bottom: 0;
@@ -471,6 +507,7 @@ section article {
   display: flex;
   gap: 10px;
 }
+
 .cndev__section[data-content=projects] {
   background: #fff;
   color: #000000;
@@ -833,6 +870,7 @@ section article {
   height: 265px;
   border-radius: 20px;
 }
+
 .cndev__section[data-content=contact] .cndev__section--inner {
   max-width: 1400px;
   margin: 0 auto;
@@ -943,6 +981,7 @@ section article {
   right: 15px;
   font-size: 20px;
 }
+
 .cndev__footer {
   position: relative;
   z-index: 1;
@@ -966,44 +1005,5 @@ section article {
   font-size: 14px;
   font-weight: 300;
 }
-.cndev__404 {
-  width: 100dvw;
-  height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.cndev.scrolled .cndev__header--content {
-  justify-content: space-between;
-}
-.cndev.scrolled .cndev__header--inner {
-  width: 1000px;
-  background: rgba(8, 7, 8, 0.4784313725);
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
-}
-.cndev.scrolled .cndev__header--logo, .cndev.scrolled .cndev__header--scroll {
-  width: 10%;
-}
-.cndev.scrolled .cndev__header--logo {
-  justify-content: flex-start;
-}
-.cndev.scrolled .cndev__header--nav {
-  width: 100%;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  transition: opacity 500ms 450ms linear;
-}
-.cndev.scrolled .cndev__header--scroll {
-  visibility: visible;
-  opacity: 1;
-  text-align: end;
-  transition: opacity 500ms 450ms linear;
-}
-.cndev.scrolled .cndev__section .fade-out-effect {
-  display: none;
-}
 
-/*# sourceMappingURL=style-index.css.map*/
+/*# sourceMappingURL=index.css.map*/
