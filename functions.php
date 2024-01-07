@@ -11,7 +11,7 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-add_action( 'init', 'cndev__private_website' );
+// add_action( 'init', 'cndev__private_website' );
 /**
  * Provisory redirection if not admin user.
  *
@@ -26,17 +26,12 @@ function cndev__private_website() {
 // Constants.
 define( 'CNDEV_DIR', get_template_directory() );
 define( 'CNDEV_URI', get_template_directory_uri() );
-define( 'CNDEV_IMG', CNDEV_URI . '/inc/assets/img' );
-define( 'CNDEV_INC', CNDEV_DIR . '/inc' );
-define( 'CNDEV_ADMIN', CNDEV_INC . '/admin' );
-define( 'CNDEV_FUNCTIONS', CNDEV_INC . '/functions' );
+define( 'CNDEV_ASSETS', CNDEV_URI . '/assets' );
+define( 'CNDEV_ADMIN', CNDEV_DIR . '/admin' );
+define( 'CNDEV_FUNCTIONS', CNDEV_DIR . '/functions' );
 
-// WP admin bar and admin area menu.
-require_once CNDEV_ADMIN . '/wp-menus.php';
-// Custom post type.
-require_once CNDEV_ADMIN . '/post-type.php';
-// Meta boxes.
-require_once CNDEV_ADMIN . '/meta-boxes/meta.php';
+// Minified assets.
+define( 'CNDEV_MINIFIED', true );
 
 // Helper functions.
 require_once CNDEV_FUNCTIONS . '/helper-functions.php';
@@ -44,3 +39,12 @@ require_once CNDEV_FUNCTIONS . '/helper-functions.php';
 require_once CNDEV_FUNCTIONS . '/body-class.php';
 // Enqueues.
 require_once CNDEV_FUNCTIONS . '/enqueues.php';
+
+// WP admin bar and admin area menu.
+require_once CNDEV_ADMIN . '/wp-menus.php';
+// Custom post type.
+require_once CNDEV_ADMIN . '/post-type.php';
+// CRUD operations.
+require_once CNDEV_ADMIN . '/crud.php';
+// Meta boxes.
+require_once CNDEV_ADMIN . '/meta-boxes/meta.php';

@@ -1,0 +1,35 @@
+.cndev__particles {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	width: 100%;
+	height: 100%;
+	// background: linear-gradient(180deg, #21211b 0%, #0f0f0f 45%);
+
+	.overlay {
+		&.top {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: -2;
+			background: linear-gradient(180deg, #21211b 0%, #0f0f0f 45%);
+		}
+		&.bottom {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(8, 7, 8, 0.7960784314) 50%, var(--cndev-darker-blue) 100%);
+			z-index: -1;
+		}
+	}
+	canvas {
+		display: block;
+		position: relative;
+		z-index: -2;
+	}
+} // &__particles

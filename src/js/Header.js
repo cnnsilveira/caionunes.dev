@@ -50,7 +50,7 @@ class Header {
             });
 
 			// Scroll to top.
-			$('header .cndev__logo, .cndev__header--scroll').on('click', () => {
+			$('header .cndev__svg, .cndev__header--scroll').on('click', () => {
 				$('html, body').animate({
 					scrollTop: 0
 				}, 0);

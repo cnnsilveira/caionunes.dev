@@ -1,0 +1,126 @@
+.cndev__section[data-content="contact"] {
+	.cndev__section--inner {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 100px 0;
+	}
+	.cndev__section--title {
+		margin-bottom: 60px;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background: linear-gradient(90deg, #00000000 25%, #ffffffa2 50%, #00000000 75%);
+		}
+	}
+	.cndev__section--content {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		width: 100%;
+		padding-bottom: 20px;
+		text-align: center;
+
+		.contact {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 50px;
+
+			.left {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+				.slogan {
+					margin-bottom: -50px;
+					text-transform: uppercase;
+					font-weight: 300;
+					font-size: 12px;
+				}
+
+				.cndev__contact-pins {
+					margin-top: -50px;
+					display: flex;
+					gap: 20px;
+				}
+			}
+
+			.right {
+				flex-grow: 1;
+				::selection {
+					color: #fff;
+					background: var(--primary-color);
+				}
+
+				.nf-form-fields-required,
+				.nf-error-msg,
+				.nf-error.field-wrap .nf-field-element::after,
+				.nf-field-label {
+					display: none;
+				}
+
+				.nf-form-content {
+					padding: 0;
+					margin: 0;
+				}
+
+				.nf-field-container {
+					margin-bottom: 15px;
+				}
+
+				.submit-container {
+					margin-bottom: 0;
+				}
+
+				
+
+				input:not([type="submit"]),
+				textarea {
+					font-family: monospace;
+					border-radius: 0 20px 20px 20px;
+					color: var(--primary-color);
+					border-color: #f7f7f7;
+				}
+
+				
+
+				textarea {
+					resize: vertical;
+					border-radius: 0 20px;
+					transition: none;
+					min-height: 200px;
+				}
+
+				input[type="submit"] {
+					font-family: monospace;
+					border-radius: 20px 0 20px 20px;
+					padding: 10px 14px;
+					border: 1px solid #fff;
+					cursor: pointer;
+					transition: all 200ms linear;
+					backdrop-filter: blur(20px);
+					width: 100%;
+					background: none;
+					cursor: pointer;
+
+					&:hover {
+						box-shadow: 0 0 2px 2px var(--primary-color);
+						background: #fff;
+						color: var(--primary-color);
+					}
+				}
+
+				.nf-pass.field-wrap .nf-field-element:after {
+					color: #024802b8;
+					right: 15px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

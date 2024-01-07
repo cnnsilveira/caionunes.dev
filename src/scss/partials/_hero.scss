@@ -1,0 +1,52 @@
+.cndev__section[data-content="hero"] {
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+
+	.cndev__section--inner {
+		max-width: 1000px;
+	}
+
+	.fade-out-effect {
+		position: relative;
+		font-size: 46px;
+		font-weight: 700;
+		line-height: 1.7em;
+		width: fit-content;
+		height: fit-content;
+		transition: all 0.3s;
+
+		h1 {
+			&::after {
+				content: '';
+				margin-top: 20px;
+				display: block;
+				width: 100%;
+				height: 1px;
+				background: linear-gradient(90deg, #00000000 15%, #ffffffa2 50%, #00000000 85%);
+			}
+		}
+		.buttons {
+			margin-top: 30px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+
+			.cndev__button {
+				font-size: 20px;
+				line-height: 1em;
+				font-weight: 600;
+				padding: 18px 24px;
+			}
+			.cndev__button:hover {
+				background: #fff;
+				color: var(--primary-color);
+			}
+		}
+	} // fade-out-effect
+}

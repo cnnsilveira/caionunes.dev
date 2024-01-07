@@ -14,13 +14,14 @@ $fp_hero_id = cndev__section_id( 'home', 'hero' );
 $markup     = '
 	<div class="fade-out-effect">
 		<h1>
-			Bringing Your Digital Dreams to Life,
-			<br>One Stack at a Time.
+			' . esc_html__( 'Bringing Your Digital Dreams to Life,', 'cndev' ) . '
+			<br>
+			' . esc_html__( 'One Stack at a Time.', 'cndev' ) . '
 		</h1>
 		<div class="buttons">
-			<a class="cndev__button">' . _x( 'About me', 'project' ) . '</a>
-			<a class="cndev__button">' . _x( 'My work', 'project' ) . '</a>
-			<a class="cndev__button">' . _x( 'Get in touch', 'project' ) . '</a>
+			<button class="cndev__button cndev__section_link" data-content="about">' . esc_html__( 'Who\'s Caio?', 'cndev' ) . '</button>
+			<button class="cndev__button cndev__section_link" data-content="projects">' . esc_html__( 'My work', 'cndev' ) . '</button>
+			<button class="cndev__button cndev__section_link" data-content="contact">' . esc_html__( 'Get in touch', 'cndev' ) . '</button>
 		</div><!-- .buttons -->
 	</div>
 ';

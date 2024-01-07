@@ -24,7 +24,7 @@
 	<?php
 	wp_body_open();
 
-	get_template_part( 'template-parts/loader' );
+	// get_template_part( 'template-parts/loader' );
 	// Header template.
 	if ( current_user_can( 'administrator' ) ) {
 		get_template_part( 'template-parts/admin-bar' );

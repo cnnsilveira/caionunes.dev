@@ -1,0 +1,117 @@
+#adminmenuwrap {
+	height: 100%;
+	max-height: calc(100vh - 50px);
+}
+#adminmenu {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+#adminmenu #collapse-menu {
+	margin-top: auto;
+}
+#adminmenu li.wp-menu-separator,
+#adminmenu div.separator {
+	height: fit-content;
+	margin: 0;
+	padding: 0;
+}
+#adminmenu div.separator::before {
+	content: '';
+	width: 100%;
+	height: 1px;
+	display: block;
+	margin: 20px 5px;
+	background: linear-gradient(90deg, #00000000 0%, #ffffffa2 10%, #00000000 80%);
+}
+.folded #adminmenu div.separator::before {
+	margin: 10px 0;
+	background: linear-gradient(90deg, #00000000 10%, #ffffffa2 50%, #00000000 90%);
+}
+#wpadminbar .cndev_admin-bar-item.dashicons {
+	font-family: dashicons !important;
+	display: inline-block !important;
+	line-height: 1 !important;
+	font-weight: 400 !important;
+	font-style: normal !important;
+	text-decoration: inherit !important;
+	text-transform: none !important;
+	text-rendering: auto !important;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
+	width: 18px !important;
+	height: 18px !important;
+	font-size: 18px !important;
+	vertical-align: center !important;
+	text-align: center !important;
+	position: relative !important;
+	font: normal 18px/1 dashicons !important;
+	padding: 4px 0 !important;
+	background-image: none!important;
+	margin-right: 6px !important;
+	color: rgba(240,246,252,.6) !important;
+	top: 3px !important;
+}
+#wpadminbar li:hover .cndev_admin-bar-item.dashicons {
+	color: #72aee6 !important;
+}
+
+.cndev__meta_links .switch {
+	position: relative;
+	display: inline-block;
+	width: 67px;
+	height: 34px;
+}
+
+.cndev__meta_links .switch input { 
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.cndev__meta_links .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 34px;
+}
+
+.cndev__meta_links .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 50%;
+}
+
+.cndev__meta_links input:checked + .slider {
+	background-color: #2196F3;
+}
+
+.cndev__meta_links input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+.cndev__meta_links input:checked + .slider:before {
+	-webkit-transform: translateX(20px);
+	-ms-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+.cndev__meta_links .repo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}

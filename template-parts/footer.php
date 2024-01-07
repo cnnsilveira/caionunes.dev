@@ -10,7 +10,12 @@
  * @link    https://github.com/cnnsilveira/caionunes.dev
  */
 
-$markup = '<span>&copy; Caio Nunes – All Rights Reserved | Panta Rhei <i class="fa-solid fa-dove"></i></span>';
+$markup = '
+	<div class="copy">
+		<span class="separator"></span>
+		<span>&copy; Caio Nunes – ' . esc_html__( 'All Rights Reserved', 'cndev' ) . '</span>
+	</div>
+';
 
 cndev__section(
 	array(

@@ -6,8 +6,8 @@
     "scripts": {
         "build": "npm run minify-js && npm run minify-css",
         "start": "wp-scripts start",
-        "minify-js": "uglifyjs build/index.js -o inc/assets/js/scripts.min.js",
-        "minify-css": "cleancss build/style-index.css -o inc/assets/css/style.min.css",
+        "minify-js": "uglifyjs build/index.js -o assets/min/app.min.js",
+        "minify-css": "cleancss build/index.css -o assets/min/styles.min.css",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
@@ -16,7 +16,8 @@
     "author": "Caio Nunes",
     "license": "LGPL-3.0-or-later",
     "dependencies": {
-        "@wordpress/scripts": "*"
+        "@wordpress/scripts": "*",
+        "basicscroll": "^3.0.4"
     },
     "devDependencies": {
         "clean-css-cli": "^5.6.2",
