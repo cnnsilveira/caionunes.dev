@@ -13,7 +13,7 @@
 $markup = '
 	<div class="copy">
 		<span class="separator"></span>
-		<span>&copy; Caio Nunes – ' . esc_html__( 'All Rights Reserved', 'cndev' ) . ' | Panta Rhei <i class="fa-brands fa-phoenix-framework"></i></span>
+		<span>&copy; Caio Nunes – ' . esc_html__( 'All Rights Reserved', 'cndev' ) . '</span>
 	</div>
 ';
 

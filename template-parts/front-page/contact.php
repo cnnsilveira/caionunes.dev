@@ -15,7 +15,6 @@ $markup = '
 		<div class="left">
 			<span class="slogan">' . esc_html__( 'Make it extraordinary with', 'cndev' ) . '</span>
 			' . cndev__svg( 'logo', 450, '#ffffff' ) . '
-			' . cndev__contact_pins() . '
 		</div>
 		<div class="right">
 			' . cndev__contact_form() . '

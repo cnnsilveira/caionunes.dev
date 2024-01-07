@@ -227,13 +227,13 @@ function cndev__contact_form( $echo = false ) {
 
 function cndev__contact_pins( $echo = false ) {
 	$contact_pins = array(
-		'cndev__contact_pin_curriculum' => '<i class="fa-solid fa-graduation-cap"></i>',
-		'cndev__contact_pin_email'      => '<i class="fa-solid fa-envelope"></i>',
-		'cndev__contact_pin_whatsapp'   => '<i class="fa-brands fa-telegram"></i>',
+		'cndev__contact_pin_github'   => '<i class="fa-brands fa-github"></i>',
+		'cndev__contact_pin_whatsapp' => '<i class="fa-brands fa-whatsapp"></i>',
+		'cndev__contact_pin_linkedin' => '<i class="fa-brands fa-linkedin-in"></i>',
 	);
 	$pin_markup   = '';
 	foreach ( $contact_pins as $pin => $icon ) {
-		$pin_markup .= '<p class="contact-pin">' . $icon . '</p>';
+		$pin_markup .= '<a href="#" class="contact-pin">' . $icon . '</a>';
 	}
 	$pin_markup = '<div class="cndev__contact-pins">' . $pin_markup . '</div>';
 	if ( ! $echo ) {
